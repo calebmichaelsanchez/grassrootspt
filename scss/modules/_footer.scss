@@ -1,0 +1,11 @@
+/* =====================
+   12. Footer
+   ===================== */
+
+footer {
+  @extend .centered;
+  & > * {
+    @extend .paragraph-margins;
+  }
+  a + a { padding-left: 0.666 * $gutter; }
+}

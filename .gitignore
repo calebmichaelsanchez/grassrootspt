@@ -1,2 +1,5 @@
-.sass-cache/
-*.css.map
+.DS_Store
+.sass-cache
+node_modules
+mock
+template

@@ -1,0 +1,13 @@
+/* Functions */
+@function colour($colour) {
+
+  @if map-has-key($colours, $colour) {
+    $colour: map-get($colours, $colour);
+  } @else {
+    @if type-of($colour) != colour {
+      @error "Colour name: `#{$colour}` not found.";
+    }
+  }
+
+  @return $colour;
+}

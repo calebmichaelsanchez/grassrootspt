@@ -1,0 +1,15 @@
+#site-title {
+  display: block;
+  @extend .section-margins;
+  @extend .giga;
+  color: $text-color;
+  text-decoration: none;
+}
+
+#logo {
+  display: block;
+  margin: $gutter/2 auto;
+  img {
+    max-height: 180px;
+  }
+}

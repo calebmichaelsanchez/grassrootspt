@@ -1,0 +1,25 @@
+.tag {
+  @extend .button;
+  margin: 0 $gutter/3 $gutter/3 0;
+  padding: .2em .5em;
+  a {
+    text-decoration: none;
+    color: $text-color;
+  }
+  &.active {
+    background-color: $link-color;
+    border-color: $link-color;
+    a {
+      color: $background-color;
+    }
+  }
+}
+
+.subcategories, .blog-tags {
+  font-size: 0;
+}
+
+.subcategories > li, .blog-tags > li {
+  @extend .tag;
+  font-size: 0.85 * $base-font-size;
+}

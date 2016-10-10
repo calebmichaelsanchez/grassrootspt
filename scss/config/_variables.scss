@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Most theme settings should be stored in Sassy CSS variables here, for reuse.
+   ========================================================================== */
+/*!theme settings */
+$base-font-size:          16px;
+$site-max-width:          60 * $base-font-size;
+$breakpoint-small-screen: 30 * $base-font-size;
+$gutter:                  1 *  $base-font-size;
+$background-color:        #fff;
+$text-color:              #2a2a2a;
+$link-color:              #2a2a2a;
+$base-font-family:        'Quicksand', Helvetica Neue, Helvetica, sans-serif;
+$heading-font-family:     $base-font-family;
+$heading-font-weight:     600;
+$colors: (
+  orange: #f26222,
+  dusk: #565588,
+  plum: #692e44,
+  light-gray: #b4b4b4
+);

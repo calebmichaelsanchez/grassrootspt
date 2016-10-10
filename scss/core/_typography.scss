@@ -1,0 +1,88 @@
+.paragraph-margins { margin: 0 0 .75 * $gutter; }
+.grid-margins      { margin: 0 0 $gutter;       }
+.section-margins   { margin: 0 0 2 * $gutter;   }
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
+  @extend .paragraph-margins;
+}
+
+/* http://modularscale.com/scale/?px1=16&px2=32&ra1=1.667&ra2=0 */
+
+.tera {
+  font-size: 5.558 * $base-font-size;
+  line-height: 1;
+}
+
+.giga {
+  font-size: 4.632 * $base-font-size;
+  line-height: 1;
+}
+
+.mega {
+  font-size: 3.334 * $base-font-size;
+  line-height: 1;
+}
+
+.alpha, h1 {
+  font-size: 1.875rem;
+  //line-height: 1.1;
+}
+
+.beta, h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.gamma, h3 {
+  font-size: 1.667 * $base-font-size;
+  line-height: 1.2;
+}
+
+.delta, h4 {
+  font-size: 1.2 * $base-font-size;
+  line-height: 1.4;
+}
+
+.epsilon, h5 {
+  font-size: 1 * $base-font-size;
+  line-height: 1.6;
+}
+
+.zeta, h6 {
+  font-size: 0.72 * $base-font-size;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 0.75rem;
+}
+
+/* Styling all pages main heading in one fell swoop. */
+#main > h1, #main .title, .product-details h1 {
+  @extend .beta;
+}
+
+.quiet { color: lighten( $text-color, 10% ); }
+.hint { color: lighten( $text-color, 15% ); }
+i, em { font-style: italic; }
+b, strong { font-weight: 700; }
+.small-print { @extend .zeta; }
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    color: darken( $link-color, 10% );
+  }
+  header &, footer & {
+    white-space: nowrap;
+    color: $text-color;
+  }
+  header &:hover, footer &:hover {
+    color: darken( $text-color, 10% );
+  }
+}
+
+section, #customer { @extend .section-margins; }
+p, form > div { @extend .paragraph-margins; }

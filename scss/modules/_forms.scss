@@ -1,0 +1,147 @@
+/* Remove placeholder text in inputs when they get focus. */
+input:focus::-webkit-input-placeholder { color: transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+
+label {
+  display: block;
+}
+
+select {
+  display: inline-block;
+  margin: 0;
+  padding: .3em 2em .3em 0.6em;
+  color: $text-color;
+  border: 0;
+  border-radius: .25em;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  //background: url({{ 'arrow-down.svg' | asset_url }}) right 0.4em center no-repeat;
+  background-color: darken( $background-color, 7% );
+}
+
+@-moz-document url-prefix() {
+  /* Impossible to hide the native arrow in Firefox.
+     https://gist.github.com/joaocunha/6273016
+     Please upvote the bug: https://bugzilla.mozilla.org/show_bug.cgi?id=649849 */
+  select {
+    background-image: none;
+    padding-right: 0;
+  }
+  /* Getting rid of dotted line around text in Firefox. */
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+}
+
+/* Getting rid of arrow in IE10 and IE11. */
+select::-ms-expand {
+  display: none;
+}
+
+/* Using default arrow with no box in IE8 and IE9. */
+.ie8 select, .ie9 select {
+  background: darken( $background-color, 20% ) none;
+  padding: 5px;
+  border: 1px;
+}
+
+/* Text inputs. */
+%input {
+  display: inline-block;
+  max-width: 100%;
+  padding: .4em .6em;
+  background-color: transparent;
+  border: darken( $background-color, 10% ) 1px solid;
+  border-radius: .25em;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="search"], input[type="number"], input[type="password"] {
+  @extend %input;
+}
+
+.input.small { width: 50px; }
+
+.input.medium { width: 150px; }
+
+.input.large { width: 300px; }
+
+.input.full-width { width: 100%; }
+
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
+  @extend .input.large;
+  @media (max-width: $breakpoint-small-screen) {
+    width: 100%;
+  }
+}
+
+input[type="search"], #searchresults input[type="search"] {
+  @extend .input.medium;
+}
+
+input.quantity, input[type="number"] {
+  @extend .input.small;
+}
+
+/* All buttons. */
+.button {
+  display: inline-block;
+  padding: .4em .6em;
+  background-color: darken( $background-color, 10%);
+  border: darken( $background-color, 10%) 1px solid;
+  border-radius: .25em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  &:hover {
+    background-color: darken( $background-color, 20%);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+input[type="submit"], input[type="button"], button {
+  @extend .button;
+}
+
+#searchresults input[type="submit"] { width: inherit; }
+
+/* Big, important buttons get a special treatment */
+.primary.button {
+  padding: .5em .7em;
+  font-size: 1.2rem;
+  background-color: $link-color;
+  border-color: $link-color;
+  color: $background-color;
+  &:hover {
+    background-color: darken( $link-color, 10% );
+  }
+}
+
+/* For search and newsletter forms, eliminate any spacing between the text box and submit button on the right. */
+.inline-collapse {
+  @extend .clearfix;
+  & input {
+    float: left;
+  }
+  & input:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  & input:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+/* For IE8. */
+.lt-ie9 .inline-collapse input, .lt-ie9 #searchresults .inline-collapse input { display: inline-block; zoom: 1; width: 130px; }
+.lt-ie9 .inline-collapse { display: block; width: 300px; }
