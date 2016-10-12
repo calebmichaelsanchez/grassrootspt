@@ -1,3 +1,23 @@
+.header {
+  min-height: rem-calc(211);
+  padding-left: rem-calc(115);
+  padding-right: rem-calc(115);
+  border-bottom: rem-calc(30) solid color(plum);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__item {
+    &--left {
+      // width: percentage(404 / 2880);
+      // min-width: rem-calc(404);
+    }
+    &--right {
+      // width: percentage(1184 / 2880);
+      // min-width: rem-calc(1184);
+    }
+  }
+}
+
 #site-title {
   display: block;
   @extend .section-margins;
@@ -8,8 +28,13 @@
 
 #logo {
   display: block;
-  margin: $gutter/2 auto;
+  font-family: $base-font-family;
+  font-size: rem-calc(24);
+  text-transform: lowercase;
+  color: color(orange);
   img {
-    max-height: 180px;
+    display: inline-block;
+    vertical-align: middle;
+    width: rem-calc(76.5);
   }
 }

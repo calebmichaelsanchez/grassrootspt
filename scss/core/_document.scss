@@ -5,12 +5,18 @@
 *, *:before, *:after { box-sizing: border-box; }
 
 html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   background-color: #fff;
   font-family: 'Quicksand', Helvetica Neue, Helvetica, sans-serif;
   font-size: 100%;
   font-weight: bold;
   line-height: 1.4;
   color: #2a2a2a;
+  @include respond-to('lg') {
+    font-size: 76%;
+  }
 }
 
 /* Responsive images and videos. */

@@ -61,7 +61,7 @@ select::-ms-expand {
   -webkit-appearance: none;
 }
 
-textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="search"], input[type="number"], input[type="password"] {
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="number"], input[type="password"] {
   @extend %input;
 }
 
@@ -80,10 +80,6 @@ textarea, input[type="text"], input[type="email"], input[type="url"], input[type
   }
 }
 
-input[type="search"], #searchresults input[type="search"] {
-  @extend .input.medium;
-}
-
 input.quantity, input[type="number"] {
   @extend .input.small;
 }
@@ -92,14 +88,12 @@ input.quantity, input[type="number"] {
 .button {
   display: inline-block;
   padding: .4em .6em;
-  background-color: darken( $background-color, 10%);
-  border: darken( $background-color, 10%) 1px solid;
-  border-radius: .25em;
+  background-color: color(plum);
   text-decoration: none;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   &:hover {
-    background-color: darken( $background-color, 20%);
+    background-color: darker(color(plum), 10%);
   }
 }
 
@@ -108,7 +102,7 @@ input.quantity, input[type="number"] {
   opacity: 0.5;
 }
 
-input[type="submit"], input[type="button"], button {
+input[type="button"], button {
   @extend .button;
 }
 

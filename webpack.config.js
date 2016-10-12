@@ -10,7 +10,7 @@ module.exports = {
   entry: APP_PATH,
   output: {
     path: "./template/assets/",
-    filename: "app.js"
+    filename: "app.js.liquid"
   },
   module: {
     loaders: [

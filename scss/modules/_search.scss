@@ -6,15 +6,40 @@
 #searchresults {
   @extend .paragraph-margins;
 }
-/* Styling all search forms. You can reuse this for newsletter signup form. */
-.search-form {
-  display: inline-block;
-  margin-top: .2 * $base-font-size;
-  @extend .inline-collapse;
-}
-/* Hiding search form in header on small screens */
-@media (max-width: $breakpoint-small-screen) {
-  header .search-form {
-    display: none;
+.nav-search-form {
+  font-size: 0;
+  border: rem-calc(1) solid color(plum);
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: rem-calc(16);
+    border: none;
+    outline: none;
+    &--search {
+      width: rem-calc(193);
+      padding-left: rem-calc(23);
+      padding-right: rem-calc(23);
+      color: color(light-gray);
+    }
+    &--button {
+      font-family: FontAwesome, Helvetica Neue, Helvetica, sans-serif;
+      background-color: color(plum);
+      background-image: url("{{ 'search.svg' | asset_url }}");
+      background-size: rem-calc(16) rem-calc(16);
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-rendering: optimizeLegibility;
+      width: rem-calc(32);
+      height: rem-calc(29);
+      color: #fff;
+    }
   }
 }
+// /* Hiding search form in header on small screens */
+// @media (max-width: $breakpoint-small-screen) {
+//   header .search-form {
+//     display: none;
+//   }
+// }

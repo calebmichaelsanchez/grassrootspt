@@ -7,13 +7,13 @@
 }
 
 /* Safeguards for floats. */
-header, #main, footer {
+#main, footer {
   @extend .clear;
   @extend .clearfix;
 }
 
 /* Add some space below main section. */
-header, #main {
+#main {
   @extend .section-margins;
 }
 /* The Grid. */

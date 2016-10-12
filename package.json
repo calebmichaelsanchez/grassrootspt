@@ -5,7 +5,7 @@
   "main": "index.js",
   "config": {
     "scss_file": "./scss/screen.scss",
-    "css_file": "./template/assets/screen.css"
+    "css_file": "./template/assets/screen.css.liquid"
   },
   "scripts": {
     "build:dev-js": "webpack -d",
