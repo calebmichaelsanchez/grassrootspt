@@ -7,32 +7,35 @@
   @extend .paragraph-margins;
 }
 .nav-search-form {
+  margin-right: 17px;
   font-size: 0;
-  border: rem-calc(1) solid color(plum);
   &__item {
     display: inline-block;
     vertical-align: middle;
-    font-size: rem-calc(16);
-    border: none;
+    font-size: 8px;
+    border: 1px solid color(dusk);
     outline: none;
+    line-height: 1;
+    min-height: 16px;
     &--search {
-      width: rem-calc(193);
-      padding-left: rem-calc(23);
-      padding-right: rem-calc(23);
+      width: 96.5px;
+      padding-left: 11.5px;
+      padding-right: 1.5px;
       color: color(light-gray);
+      max-height: 16px;
     }
     &--button {
       font-family: FontAwesome, Helvetica Neue, Helvetica, sans-serif;
-      background-color: color(plum);
+      background-color: color(dusk);
       background-image: url("{{ 'search.svg' | asset_url }}");
-      background-size: rem-calc(16) rem-calc(16);
+      background-size: 8px 8px;
       background-position: center center;
       background-repeat: no-repeat;
       text-decoration: none;
       text-transform: uppercase;
       text-rendering: optimizeLegibility;
-      width: rem-calc(32);
-      height: rem-calc(29);
+      width: 16px;
+      max-height: 16px;
       color: #fff;
     }
   }

@@ -1,9 +1,11 @@
 $breakpoints: (
-  'xs' : ( min-width: 480px  ),
-  'sm' : ( min-width: 640px  ),
-  'md' : ( min-width: 768px  ),
-  'lg' : ( min-width: 1024px ),
-  'xl' : ( min-width: 1440px ),
+  'mobile'         : ( min-width: 480px  ),
+  'mobile-plus'    : ( min-width: 640px  ),
+  'ipad-portrait'  : ( min-width: 768px  ),
+  'ipad-landscape' : ( min-width: 1024px ),
+  'mbp-thirteen'   : ( min-width: 1280px ),
+  'mbp-fifteen'    : ( min-width: 1440px ),
+  'retina'         : ( min-width: 2880px )
 );
 
 @mixin respond-to($name) {

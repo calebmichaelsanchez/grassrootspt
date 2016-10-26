@@ -1,0 +1,37 @@
+.contact {
+  padding: rem-calc(100) rem-calc(16);
+  text-align: center;
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat #fff;
+  background-size: rem-calc(277) rem-calc(180.5);
+  color: color(orange);
+  a { color: color(orange); }
+  &__item {
+    width: 100%;
+    max-width: rem-calc(600);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.contact-form {
+    margin: rem-calc(60) 0;
+}
+.feedback {
+    padding: 0.5em 0.7em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.feedback p {
+    padding: 0.5em 0 !important;
+    margin: 0 !important;
+}
+.successForm {
+    background: #bde0a8;
+    color: green;
+}
+.errorForm {
+    background: #eebdbd;
+    color: color(dusk);
+    text-align: left;
+}

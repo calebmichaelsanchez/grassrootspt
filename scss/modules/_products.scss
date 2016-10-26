@@ -1,47 +1,148 @@
-/* ==========================================================================
-  10. Product and collection pages.
-  ========================================================================== */
+// /* ==========================================================================
+//   10. Product and collection pages.
+//   ========================================================================== */
 
-.product-details > div,
-.product-details > p {
-  @extend .section-margins;
+// .product-details > div,
+// .product-details > p {
+//   @extend .section-margins;
+// }
+
+// .product-photo-container {
+//   @extend .grid-margins;
+// }
+
+// /* Quickly hiding default variant drop-down when JavaScript is enabled */
+// /* See this: http://www.learningjquery.com/2008/10/1-way-to-avoid-the-flash-of-unstyled-content/ */
+// .js #product-select { display: none; }
+
+// /* Product option wrapper. */
+// .selector-wrapper {
+//   @extend .paragraph-margins;
+// }
+
+// .sort-by {
+//   margin-top: .25rem;
+// }
+
+// @media (max-width: $breakpoint-small-screen) {
+//   .sort-by {
+//     float: none;
+//     margin-bottom: $gutter;
+//   }
+// }
+
+// .prod-caption {
+//   margin: $gutter/6 0;
+// }
+
+// .product-photo-thumb:nth-child(2n+1) {
+//   clear: both;
+// }
+
+// @media (max-width: $breakpoint-small-screen) {
+//   .two-per-row.product-photo-thumb {
+//     width: 50% !important;
+//     float: left !important;
+//   }
+// }
+
+.collection {
+
 }
 
-.product-photo-container {
-  @extend .grid-margins;
+.grid {
+  font-size: 0;
+  text-align: center;
 }
 
-/* Quickly hiding default variant drop-down when JavaScript is enabled */
-/* See this: http://www.learningjquery.com/2008/10/1-way-to-avoid-the-flash-of-unstyled-content/ */
-.js #product-select { display: none; }
-
-/* Product option wrapper. */
-.selector-wrapper {
-  @extend .paragraph-margins;
-}
-
-.sort-by {
-  margin-top: .25rem;
-}
-
-@media (max-width: $breakpoint-small-screen) {
-  .sort-by {
-    float: none;
-    margin-bottom: $gutter;
+.product {
+  display: inline-block;
+  vertical-align: top;
+  width: 33.33%;
+  padding: rem-calc(16);
+  &__inner {
+    width: 100%;
+    max-width: rem-calc(880);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &--Video, &--Kit, &--Combination {
+    width: 100%;
+    font-size: 0;
+    text-align: left;
+    padding: 0;
+    .product__item {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .product-image {
+      width: percentage(392 / 880);
+      margin-right: percentage(18.5 / 880);
+    }
+    .product-info {
+      width: percentage(282 / 880);
+      margin-right: percentage(75 / 880);
+      margin-left: percentage(18.5 / 880);
+      text-align: left;
+      &__description {
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(10);
+      }
+      &__price {
+        margin-bottom: 0;
+      }
+    }
+    .product-button {
+      width: percentage(94 / 880);
+    }
+  }
+  &--Video {
+    padding-top: rem-calc(100);
+    background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat color(orange);
+    background-size: rem-calc(277) rem-calc(180.5);
+    a, p { color: #fff; }
+  }
+  &--Kit {
+    .product__inner { border-bottom: rem-calc(16) solid color(orange); }
+  }
+  &--Kit, &--Combination {
+    .product__inner {
+      padding-top: rem-calc(80);
+      padding-bottom: rem-calc(80);
+    }
+    h1 { color: color(orange); }
+  }
+  &--Combination {
+    .product-image {
+      width: percentage(558 / 880);
+      margin-right: percentage(224 / 880);
+    }
+    .product-info { display: none; }
   }
 }
+.product-image {
 
-.prod-caption {
-  margin: $gutter/6 0;
 }
-
-.product-photo-thumb:nth-child(2n+1) {
-  clear: both;
+.product-info {
+  font-size: rem-calc(12);
+  p { font-size: rem-calc(12); }
+  &__link {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 }
-
-@media (max-width: $breakpoint-small-screen) {
-  .two-per-row.product-photo-thumb {
-    width: 50% !important;
-    float: left !important;
+.product-button {
+  width: rem-calc(94);
+  &__submit {
+    height: rem-calc(94);
+    white-space: normal;
+    border-radius: 50%;
+    color: #fff;
+    background-color: color(plum);
+    text-transform: uppercase;
+    font-size: rem-calc(17);
+    text-align: center;
+    border: none;
+    outline: none;
   }
 }

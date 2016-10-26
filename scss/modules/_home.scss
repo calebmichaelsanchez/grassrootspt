@@ -1,0 +1,50 @@
+.intro {
+  padding-top: rem-calc(60);
+  text-align: center;
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat color(orange);
+  background-size: rem-calc(277) rem-calc(180.5);
+  // &:before {
+  //   content: '';
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   height: 99.75%;
+  //   margin-right: -0.025rem;
+  // }
+  &__video {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 100%;
+    max-width: rem-calc(745);
+    text-align: center;
+  }
+  &__text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    h1 {
+      color: color(orange);
+      font-size: rem-calc(48);
+      text-transform: lowercase;
+      line-height: 1;
+      margin-bottom: rem-calc(20);
+    }
+    h2 {
+      font-size: rem-calc(24);
+      font-weight: 400;
+      color: color(orange);
+      line-height: 1;
+      text-transform: none;
+    }
+  }
+  &__video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background: url("{{ 'intro-video-poster.jpg' | asset_url }}") center center no-repeat;
+    background-size: cover;
+  }
+}

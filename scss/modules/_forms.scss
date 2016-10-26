@@ -4,6 +4,14 @@ input:focus::-moz-placeholder { color:transparent; }
 
 label {
   display: block;
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+  outline: none;
+  margin: 0 0 rem-calc(14);
+  padding: 0;
 }
 
 select {
@@ -51,14 +59,16 @@ select::-ms-expand {
 
 /* Text inputs. */
 %input {
-  display: inline-block;
+  display: block;
+  width: 100%;
   max-width: 100%;
-  padding: .4em .6em;
+  padding: rem-calc(15) rem-calc(18);
   background-color: transparent;
-  border: darken( $background-color, 10% ) 1px solid;
-  border-radius: .25em;
+  border: 1px solid color(orange);
   outline: none;
   -webkit-appearance: none;
+  font-size: rem-calc(12);
+  color: color(light-gray);
 }
 
 textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="number"], input[type="password"] {
@@ -74,7 +84,7 @@ textarea, input[type="text"], input[type="email"], input[type="url"], input[type
 .input.full-width { width: 100%; }
 
 textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
-  @extend .input.large;
+  //@extend .input.large;
   @media (max-width: $breakpoint-small-screen) {
     width: 100%;
   }
@@ -108,6 +118,19 @@ input[type="button"], button {
 
 #searchresults input[type="submit"] { width: inherit; }
 
+.contact-form input[type="submit"] {
+  width: rem-calc(94);
+  height: rem-calc(94);
+  border-radius: 50%;
+  color: #fff;
+  background-color: color(plum);
+  text-transform: uppercase;
+  font-size: rem-calc(17);
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
 /* Big, important buttons get a special treatment */
 .primary.button {
   padding: .5em .7em;
@@ -121,20 +144,20 @@ input[type="button"], button {
 }
 
 /* For search and newsletter forms, eliminate any spacing between the text box and submit button on the right. */
-.inline-collapse {
-  @extend .clearfix;
-  & input {
-    float: left;
-  }
-  & input:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  & input:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}
+// .inline-collapse {
+//   @extend .clearfix;
+//   & input {
+//     float: left;
+//   }
+//   & input:first-child {
+//     border-top-right-radius: 0;
+//     border-bottom-right-radius: 0;
+//   }
+//   & input:last-child {
+//     border-top-left-radius: 0;
+//     border-bottom-left-radius: 0;
+//   }
+// }
 
 /* For IE8. */
 .lt-ie9 .inline-collapse input, .lt-ie9 #searchresults .inline-collapse input { display: inline-block; zoom: 1; width: 130px; }
