@@ -4,6 +4,8 @@
 
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
+  margin: 0;
+  padding: 0;
   @extend .paragraph-margins;
 }
 
@@ -55,7 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  font-size: rem-calc(24);
+  font-size: rem-calc(16);
+  @include respond-to(ipad-portrait) {
+    font-size: rem-calc(24);
+  }
 }
 
 /* Styling all pages main heading in one fell swoop. */
@@ -81,6 +86,9 @@ a {
   }
   header &:hover, footer &:hover {
     color: darken( $text-color, 10% );
+  }
+  &.classic {
+    color: color(orange);
   }
 }
 

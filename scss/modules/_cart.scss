@@ -1,0 +1,41 @@
+.cart {
+  padding: rem-calc(100) rem-calc(16);
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat #fff;
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
+  &__inner {
+    width: 100%;
+    max-width: rem-calc(860);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    margin-bottom: rem-calc(40);
+  }
+}
+.instructions {
+  padding-top: rem-calc(20);
+  textarea {
+    margin-top: rem-calc(15);
+    max-width: rem-calc(500);
+  }
+}
+.check-it-out {
+  padding-top: rem-calc(20);
+}
+.terms-and-conditions {
+  input, label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  label {
+    width: auto;
+    font-size: rem-calc(16);
+  }
+}

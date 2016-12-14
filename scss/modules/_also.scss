@@ -1,0 +1,37 @@
+.also {
+  display: block;
+  width: 100%;
+  max-width: rem-calc(500);
+  margin-left: auto;
+  margin-right: auto;
+  border-top: rem-calc(10) solid color(orange);
+  margin-top: rem-calc(50);
+  text-align: center;
+  font-size: 0;
+  @include respond-to(ipad-landscape) {
+    max-width: rem-calc(880);
+  }
+  &-title {
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-size: rem-calc(24);
+    color: color(orange);
+    padding-top: rem-calc(24);
+  }
+  li {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    font-size: rem-calc(16);
+    padding-top: rem-calc(16);
+    padding-bottom: rem-calc(16);
+    @include respond-to(mobile-plus) {
+      width: 50%;
+      padding: rem-calc(16);
+    }
+    @include respond-to (ipad-landscape) {
+      width: 33.33%;
+    }
+  }
+}

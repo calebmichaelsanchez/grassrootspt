@@ -71,8 +71,11 @@ select::-ms-expand {
   color: color(light-gray);
 }
 
-textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="number"], input[type="password"] {
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
   @extend %input;
+}
+input[type="number"] {
+  padding: rem-calc(10);
 }
 
 .input.small { width: 50px; }
@@ -102,6 +105,9 @@ input.quantity, input[type="number"] {
   text-decoration: none;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
+  border: none;
+  outline: none;
+  color: #fff;
   &:hover {
     background-color: darker(color(plum), 10%);
   }

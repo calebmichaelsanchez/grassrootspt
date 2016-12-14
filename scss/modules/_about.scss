@@ -1,9 +1,15 @@
 .about {
-  padding-top: rem-calc(100);
-  padding-bottom: rem-calc(100);
+  padding: rem-calc(100) rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat color(orange);
-  background-size: rem-calc(277) rem-calc(180.5);
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color(orange);
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
   &__text {
     position: relative;
     display: inline-block;
@@ -16,8 +22,7 @@
   max-width: rem-calc(880);
   margin-left: auto;
   margin-right: auto;
-  padding-top: rem-calc(80);
-  padding-bottom: rem-calc(80);
+  padding: rem-calc(80) rem-calc(16);
   &__list {
     margin: 0;
   }
@@ -40,13 +45,13 @@
     display: inline-block;
     vertical-align: middle;
     text-align: left;
+    width: 100%;
     &--image {
       position: relative;
-      width: percentage(215 / 880);
-      padding-right: percentage(42.5 / 880);
+      margin-bottom: rem-calc(10);
       &:after {
         content: '';
-        display: block;
+        display: none;
         position: absolute;
         top: 0;
         left: 100%;
@@ -54,12 +59,23 @@
         height: 100%;
         background-color: color(orange);
       }
+      @include respond-to(mobile) {
+        width: percentage(215 / 880);
+        padding-right: percentage(42.5 / 880);
+        margin-bottom: 0;
+        &:after {
+          display: block;
+        }
+      }
     }
     &--text {
-      width: percentage(580 / 880);
-      font-size: rem-calc(12);
+      font-size: rem-calc(14);
       color: color(orange);
-      padding-left: percentage(42.5 / 880);
+      @include respond-to(mobile) {
+        font-size: rem-calc(12);
+        width: percentage(580 / 880);
+        padding-left: percentage(42.5 / 880);
+      }
     }
   }
   &__name {

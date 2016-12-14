@@ -1,10 +1,23 @@
 .contact {
   padding: rem-calc(100) rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat #fff;
-  background-size: rem-calc(277) rem-calc(180.5);
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat #fff;
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
   color: color(orange);
   a { color: color(orange); }
+  h1 {
+    font-size: rem-calc(20);
+    @include respond-to(mobile-plus) {
+      font-size: rem-calc(30);
+    }
+  }
   &__item {
     width: 100%;
     max-width: rem-calc(600);

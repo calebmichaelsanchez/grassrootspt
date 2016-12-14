@@ -1,8 +1,17 @@
 .intro {
   padding-top: rem-calc(60);
+  padding-left: rem-calc(16);
+  padding-right: rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") top left no-repeat color(orange);
-  background-size: rem-calc(277) rem-calc(180.5);
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color(orange);
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
   // &:before {
   //   content: '';
   //   display: inline-block;
@@ -12,11 +21,12 @@
   // }
   &__video {
     position: relative;
-    display: inline-block;
-    vertical-align: bottom;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     max-width: rem-calc(745);
     text-align: center;
+    cursor: pointer;
   }
   &__text {
     display: block;
@@ -24,27 +34,80 @@
     width: 100%;
     top: 50%;
     left: 50%;
+    z-index: 3;
+    transition: 400ms ease;
+    opacity: 1;
+    visibility: visible;
     transform: translateX(-50%) translateY(-50%);
+    .active & {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 400ms ease, visibility 0s 400ms linear;
+    }
     h1 {
       color: color(orange);
-      font-size: rem-calc(48);
       text-transform: lowercase;
       line-height: 1;
-      margin-bottom: rem-calc(20);
+      font-size: rem-calc(32);
+      margin-bottom: rem-calc(10);
+      @include respond-to(ipad-portrait) {
+        font-size: rem-calc(48);
+        margin-bottom: rem-calc(20);
+      }
     }
     h2 {
-      font-size: rem-calc(24);
+      font-size: rem-calc(16);
       font-weight: 400;
       color: color(orange);
       line-height: 1;
       text-transform: none;
+      @include respond-to(ipad-portrait) {
+        font-size: rem-calc(24)
+      }
+    }
+    img {
+      width: 100%;
+      max-width: rem-calc(30);
+      margin-top: rem-calc(15);
+      @include respond-to(ipad-portrait) {
+        max-width: rem-calc(60);
+        margin-top: rem-calc(35);
+      }
     }
   }
   &__video-container {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
-    background: url("{{ 'intro-video-poster.jpg' | asset_url }}") center center no-repeat;
     background-size: cover;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: color(dusk);
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: 400ms ease;
+    }
+    .active & iframe { opacity: 1; }
+    .active &:after {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 400ms ease, visibility 0s 400ms linear;
+    }
   }
 }

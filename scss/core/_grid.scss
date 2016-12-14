@@ -66,13 +66,13 @@
 // Clearfix applied to .row because row content is floated.
 // .row { @extend .clearfix; }
 
-// /* Show and hide depending on screen size. */
-// @media (max-width: $breakpoint-small-screen) {
-// .show-on-large, .show-on-medium, .hide-on-small { display: none; }
-// }
-// @media (min-width: $breakpoint-small-screen) {
-// .hide-on-large, .show-on-medium, .show-on-small { display: none; }
-// }
+/* Show and hide depending on screen size. */
+@media (max-width: $breakpoint-small-screen) {
+.show-on-large, .show-on-medium, .hide-on-small { display: none; }
+}
+@media (min-width: $breakpoint-small-screen) {
+.hide-on-large, .show-on-medium, .show-on-small { display: none; }
+}
 
 // /* IE8 does not support media queries */
 // .lt-ie9 .show-on-medium, .lt-ie9 .show-on-small { display: none; }
