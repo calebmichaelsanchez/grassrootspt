@@ -1,0 +1,103 @@
+.media {
+  padding: rem-calc(100) rem-calc(16);
+  text-align: center;
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat;
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
+  &__list {
+    width: 100%;
+    max-width: rem-calc(500);
+    margin-left: auto;
+    margin-right: auto;
+    padding: rem-calc(80) rem-calc(16);
+    font-size: 0;
+    text-align: left;
+    @include respond-to(ipad-portrait) {
+      max-width: rem-calc(880);
+    }
+  }
+  &__item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: rem-calc(70);
+    vertical-align: middle;
+    @include respond-to(ipad-portrait) {
+      width: 50%;
+      padding: rem-calc(32)
+    }
+    @include respond-to(ipad-landscape) {
+      padding: 0;
+    }
+  }
+}
+.article {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-size: 0;
+  text-align: center;
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    width: 100%;
+    &--image {
+      position: relative;
+      margin-bottom: rem-calc(10);
+      @include respond-to(ipad-landscape) {
+        width: percentage(158 / 440);
+        margin-right: percentage(35 / 440);
+        margin-bottom: 0;
+      }
+    }
+    &--text {
+      font-size: rem-calc(14);
+      color: color(orange);
+      @include respond-to(ipad-landscape) {
+        font-size: rem-calc(12);
+        width: percentage(175 / 440);
+      }
+    }
+  }
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: rem-calc(12);
+  }
+  &__content {
+    color: #454545;
+    font-weight: 400;
+    margin-bottom: rem-calc(12);
+  }
+  &__link {
+    display: block;
+    width: rem-calc(50);
+    height: rem-calc(50);
+    background-color: color(plum);
+    border-radius: 50%;
+    text-align: center;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.15rem;
+    }
+    a {
+      max-width: 93%;
+      display: inline-block;
+      vertical-align: middle;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: rem-calc(9);
+      text-align: center;
+      border: none;
+      outline: none;
+    }
+  }
+}

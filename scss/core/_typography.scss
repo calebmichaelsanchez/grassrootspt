@@ -1,4 +1,4 @@
-.paragraph-margins { margin: 0 0 .75 * $gutter; }
+.paragraph-margins { margin: 0 0 rem-calc(25); }
 .grid-margins      { margin: 0 0 $gutter;       }
 .section-margins   { margin: 0 0 2 * $gutter;   }
 
@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-size: rem-calc(16);
   @include respond-to(ipad-portrait) {
-    font-size: rem-calc(24);
+    font-size: rem-calc(20);
   }
 }
 
@@ -94,3 +94,4 @@ a {
 
 #customer { @extend .section-margins; }
 p, form > div { @extend .paragraph-margins; }
+//p:last-of-type { margin-bottom: 0; }

@@ -1,32 +1,26 @@
 /* =====================
    12. Footer
    ===================== */
-.template-page,
-.template-collection,
-.template-product,
-.template-cart,
-.template-search {
-  #main {
-    padding-bottom: rem-calc(352);
-    @include respond-to(mobile-plus) {
-      padding-bottom: rem-calc(278);
-    }
-  }
-}
-#container { position: relative; min-height: 100%; }
+// .template-page,
+// .template-collection,
+// .template-product,
+// .template-cart,
+// .template-search,
+// .template-customers-login,
+// .template- {
+//   #main {
+//     padding-bottom: rem-calc(375);
+//     @include respond-to(mobile-plus) {
+//       padding-bottom: rem-calc(301);
+//     }
+//   }
+// }
 
 .template-index {
   #container { background-color: color(orange); }
-  #main {
-    padding-bottom: rem-calc(352);
-    @include respond-to(mobile-plus) {
-      padding-bottom: rem-calc(278);
-    }
-    @include respond-to(ipad-landscape) {
-      padding-bottom: rem-calc(354);
-    }
-  }
 }
+
+#container { position: relative; min-height: 100%; }
 
 
 footer {

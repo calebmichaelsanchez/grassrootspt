@@ -8,6 +8,7 @@
   margin-top: rem-calc(50);
   text-align: center;
   font-size: 0;
+  margin-bottom: 0;
   @include respond-to(ipad-landscape) {
     max-width: rem-calc(880);
   }
