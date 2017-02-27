@@ -1,0 +1,140 @@
+.account {
+  padding: rem-calc(100) rem-calc(16);
+  text-align: center;
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat #fff;
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
+  color: color(orange);
+  &__item {
+    width: 100%;
+    max-width: rem-calc(600);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    .account--details &,
+    .account--order & {
+      max-width: rem-calc(720);
+    }
+  }
+  &__order {
+    text-align: center;
+    font-size: 0;
+    width: 100%;
+    margin-top: rem-calc(40);
+    max-width: rem-calc(600);
+    margin-left: auto;
+    margin-right: auto;
+    &-item {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      margin-bottom: rem-calc(15);
+      @include respond-to(ipad-portrait) {
+        margin-bottom: 0;
+        width: 50%;
+        &:nth-of-type(2) {
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 0;
+            width: 2px;
+            height: 130%;
+            background-color: color(orange);
+            z-index: 1;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+    &-title {
+      text-transform: uppercase;
+      span { text-transform: lowercase; color: #505050; }
+    }
+  }
+  &__title {
+    font-size: rem-calc(24);
+    text-transform: lowercase;
+    margin-top: rem-calc(15);
+    margin-bottom: rem-calc(40);
+    .account--order &,
+    .account--addresses & {
+      line-height: 1;
+      margin-bottom: rem-calc(5);
+    }
+  }
+  &__order-placed,
+  &__product-fulfilled {
+    color: rgba(color(orange), .7);
+    font-size: rem-calc(12);
+    text-transform: lowercase;
+  }
+  &__password {
+    margin-bottom: rem-calc(10);
+    .account--register & {
+      margin-bottom: rem-calc(30);
+    }
+  }
+  &__links {
+    text-align: left;
+    padding-left: rem-calc(10);
+  }
+  &__link {
+    text-transform: lowercase;
+    font-size: rem-calc(12);
+    color: color(plum);
+    .account--details & {
+      display: inline-block;
+      margin-bottom: rem-calc(10);
+    }
+    &:visited, &:active, &:focus {
+      color: color(plum);
+    }
+  }
+  &__return-to-store {
+    width: 100%;
+    text-align: center;
+    a {
+      text-transform: lowercase;
+      font-size: rem-calc(12);
+      color: color(plum);
+      &:visited, &:active, &:focus {
+        color: color(plum);
+      }
+    }
+  }
+  &__button {
+    display: inline-block;
+    margin-bottom: rem-calc(10);
+  }
+  #customer {
+    width: 100%;
+  }
+  &__address {
+    h5, p {
+      font-size: rem-calc(16);
+      color: color(orange);
+      line-height: 1;
+      margin-bottom: rem-calc(5);
+    }
+  }
+  &__orders {
+    font-size: rem-calc(14);
+    margin-top: rem-calc(60);
+    text-align: left;
+    text-transform: lowercase;
+    td { color: #505050; }
+  }
+}
+.customer {
+  &__address {
+    .label { display: none; }
+  }
+}
