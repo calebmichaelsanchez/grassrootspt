@@ -8,7 +8,6 @@
     let container = $(".trailer");
     let close = $(".close");
     let video = document.getElementById("youtube").contentWindow;
-    console.log(video);
     $("#trailer").click(function(e) {
       e.preventDefault();
       container.fadeIn(600);

@@ -61,6 +61,10 @@ p {
   @include respond-to(ipad-portrait) {
     font-size: rem-calc(20);
   }
+  .template-page & {
+    font-weight: 400;
+    margin-bottom: rem-calc(10);
+  }
 }
 
 /* Styling all pages main heading in one fell swoop. */
