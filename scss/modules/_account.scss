@@ -21,6 +21,9 @@
     .account--order & {
       max-width: rem-calc(720);
     }
+    .account--addresses & {
+      max-width: rem-calc(1000);
+    }
   }
   &__order {
     text-align: center;
@@ -124,6 +127,10 @@
       line-height: 1;
       margin-bottom: rem-calc(5);
     }
+    &-title {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
   }
   &__orders {
     font-size: rem-calc(14);
@@ -132,9 +139,46 @@
     text-transform: lowercase;
     td { color: #505050; }
   }
+  &__new {
+    margin-top: rem-calc(20);
+    p {
+      font-size: rem-calc(14);
+      margin-bottom: 0;
+    }
+  }
 }
 .customer {
   &__address {
+    max-width: 700px;
+    text-align: left;
     .label { display: none; }
+    table tr { border: none; }
+  }
+}
+.address {
+  font-size: 0;
+  text-align: center;
+  &__table {
+    display: inline-block;
+    width: 100%;
+    margin-top: 40px;
+    @include respond-to(ipad-portrait) {
+      width: 33.33%;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    &:first-of-type {
+      display: block;
+      width: 100%;
+    }
+  }
+  &__actions {
+    color: color(plum);
+    margin-top: 15px;
+    font-size: 14px;
+    a {
+      color: color(plum);
+      &:active, &:hover, &:focus, &:visited { color: color(plum); }
+    }
   }
 }
