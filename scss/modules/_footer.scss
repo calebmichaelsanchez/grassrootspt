@@ -48,6 +48,48 @@ footer {
     z-index: 0;
   }
 }
+.footer__mailchimp {
+  position: relative;
+  width: 100%;
+  max-width: rem-calc(514.5);
+  text-align: center;
+  @include center;
+  z-index: 10;
+}
+#mc_embed_signup form {
+  text-align: center;
+  padding: 0;
+  h2 {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+}
+#mc_embed_signup .mc-field-group {
+  width: 100%;
+  font-size: 0;
+  input {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+  input[type="email"] {
+    width: 83%;
+    margin-right: 2%;
+  }
+  input[type="submit"] {
+    width: 15%;
+    background: color(orange);
+    color: #fff;
+    //padding: 15px 10px;
+    margin: 0;
+  }
+}
+#mc_embed_signup_scroll {
+  margin-bottom: 0;
+}
 
 .footer-search-form {
   position: relative;
@@ -61,7 +103,7 @@ footer {
   @include respond-to(ipad-landscape) {
     &--index {
       max-width: rem-calc(744);
-      margin-bottom: rem-calc(86);
+      margin-bottom: rem-calc(80);
       .footer-search-form__item--search {
         font-size: rem-calc(18);
         padding-top: rem-calc(37);

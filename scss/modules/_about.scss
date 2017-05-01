@@ -82,8 +82,17 @@
     text-transform: uppercase;
     margin-bottom: rem-calc(12);
   }
-  &__content {
+  &__content, &__content p {
     color: #454545;
     font-weight: 400;
+    font-size: rem-calc(14);
+    @include respond-to(mobile) {
+      font-size: rem-calc(12);
+    }
+    a {
+      color: color(orange);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   }
 }

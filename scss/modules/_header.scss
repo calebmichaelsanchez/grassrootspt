@@ -10,18 +10,8 @@
   align-items: center;
   font-size: 100%;
   z-index: 10;
-  @include respond-to(ipad-portrait) {
+  @include respond-to(ipad-landscape) {
     display: flex;
-  }
-  &__item {
-    &--left {
-      // width: percentage(404 / 2880);
-      // min-width: rem-calc(404);
-    }
-    &--right {
-      // width: percentage(1184 / 2880);
-      // min-width: rem-calc(1184);
-    }
   }
 }
 .header-mobile {
@@ -32,11 +22,8 @@
     align-items: center;
     padding: rem-calc(12);
   }
-  @include respond-to(ipad-portrait) {
+  @include respond-to(ipad-landscape) {
     display: none;
-  }
-  &__item {
-    //display: inline-block;
   }
 }
 
