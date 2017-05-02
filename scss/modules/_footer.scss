@@ -11,9 +11,8 @@
   padding: rem-calc(47) rem-calc(16) rem-calc(70);
   text-align: center;
   color: #fff;
-  background: color(plum) url("{{ 'orange-flourish-lg.png' | asset_url }}") no-repeat percentage(925 / 1440) 0%;
-  background-size: rem-calc(276) rem-calc(114);
   z-index: 20;
+  background-color: color(plum);
   &:after {
     content: '';
     position: absolute;
@@ -24,7 +23,7 @@
     height: 100%;
     background: url("{{ 'orange-flourish-sm.png' | asset_url }}") no-repeat bottom center;
     background-size: rem-calc(137) rem-calc(50.5);
-    z-index: 0;
+    z-index: -1;
   }
   &__title {
     font-size: rem-calc(24);
