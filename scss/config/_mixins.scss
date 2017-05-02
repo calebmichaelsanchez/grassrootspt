@@ -23,6 +23,73 @@ $breakpoints: (
   }
 }
 
+// ======================================
+// Fonts
+// ======================================
+
+@mixin font-normal() {
+  font-stretch: normal;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
+}
+@mixin font-primary() {
+  font-family: $primary;
+  @include font-normal();
+}
+
+// ======================================
+// Fonts
+// ======================================
+
+@mixin h1() {
+  @include font-primary();
+  font-size: rem-calc($h1);
+}
+@mixin h2() {
+  @include font-primary();
+  font-size: rem-calc($h2);
+  font-weight: normal;
+  text-transform: uppercase;
+}
+@mixin h3() {
+  @include font-primary();
+  font-size: rem-calc($h3);
+  line-height: 1.2;
+}
+@mixin p() {
+  @include font-primary();
+  font-size: rem-calc($body);
+  @include respond-to(ipad-portrait) {
+    font-size: rem-calc(20);
+  }
+}
+@mixin a() {
+  @include font-primary();
+  color: $link-color;
+  text-decoration: none;
+  font-size: rem-calc($body);
+}
+@mixin small() {
+  @include font-primary();
+  font-size: rem-calc($small);
+}
+@mixin button() {
+  @include font-tertiary();
+  display: inline-block;
+  width: 190px;
+  padding: 24px 10px;
+  background-color: $red;
+  font-size: $small;
+  color: $white;
+  letter-spacing: 0.28rem;
+  cursor: pointer;
+}
+
+// ======================================================
+// Floats - Hey, how about, don't use floats for layout
+// ======================================================
+
 @mixin clearfix() {
   &:after {
     content: '';
@@ -30,6 +97,10 @@ $breakpoints: (
     clear: both;
   }
 }
+
+// ======================================
+// Alignment
+// ======================================
 
 @mixin center() {
   margin-left: auto;
@@ -42,4 +113,31 @@ $breakpoints: (
 
 @mixin right() {
   margin-left: auto;
+}
+
+// ======================================
+// Background
+// ======================================
+
+@mixin background($color: orange) {
+  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color($color);
+  background-position: 0px -10px;
+  background-size: percentage(600 / 1440) auto;
+  @include respond-to(mobile-plus) {
+    background-size: percentage(400 / 1440) auto;
+  }
+  @include respond-to(ipad-portrait) {
+    background-size: percentage(277 / 1440) auto;
+  }
+}
+
+// ======================================
+// Background
+// ======================================
+
+@mixin container($max-width: 745px) {
+  position: relative;
+  width: 100%;
+  max-width: $max-width;
+  @include center();
 }

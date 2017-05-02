@@ -26,7 +26,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  //background: url({{ 'arrow-down.svg' | asset_url }}) right 0.4em center no-repeat;
   background-color: darken( $background-color, 7% );
 }
 
@@ -71,27 +70,27 @@ select::-ms-expand {
   color: color(light-gray);
 }
 
-textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="date"],
+input[type="password"] {
   @extend %input;
+  @media (max-width: $breakpoint-small-screen) {
+    width: 100%;
+  }
 }
+
 input[type="number"] {
   padding: rem-calc(10);
 }
 
 .input.small { width: 50px; }
-
 .input.medium { width: 150px; }
-
 .input.large { width: 300px; }
-
 .input.full-width { width: 100%; }
-
-textarea, input[type="text"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="password"] {
-  //@extend .input.large;
-  @media (max-width: $breakpoint-small-screen) {
-    width: 100%;
-  }
-}
 
 input.quantity, input[type="number"] {
   @extend .input.small;
@@ -104,7 +103,6 @@ input.quantity, input[type="number"] {
   background-color: color(plum);
   text-decoration: none;
   text-transform: uppercase;
-  text-rendering: optimizeLegibility;
   border: none;
   outline: none;
   color: #fff;
@@ -115,6 +113,12 @@ input.quantity, input[type="number"] {
     padding: rem-calc(10) rem-calc(15);
     margin-top: rem-calc(15);
     color: #fff;
+  }
+  &--tertiary {
+    font-size: rem-calc(12);
+    padding: rem-calc(10) rem-calc(15);
+    text-align: left;
+    text-transform: none;
   }
   &:hover {
     background-color: darker(color(plum), 10%);
@@ -149,34 +153,6 @@ input[type="button"], button {
   border: none;
   outline: none;
 }
-
-/* Big, important buttons get a special treatment */
-.primary.button {
-  padding: .5em .7em;
-  font-size: 1.2rem;
-  background-color: $link-color;
-  border-color: $link-color;
-  color: $background-color;
-  &:hover {
-    background-color: darken( $link-color, 10% );
-  }
-}
-
-/* For search and newsletter forms, eliminate any spacing between the text box and submit button on the right. */
-// .inline-collapse {
-//   @extend .clearfix;
-//   & input {
-//     float: left;
-//   }
-//   & input:first-child {
-//     border-top-right-radius: 0;
-//     border-bottom-right-radius: 0;
-//   }
-//   & input:last-child {
-//     border-top-left-radius: 0;
-//     border-bottom-left-radius: 0;
-//   }
-// }
 
 /* For IE8. */
 .lt-ie9 .inline-collapse input, .lt-ie9 #searchresults .inline-collapse input { display: inline-block; zoom: 1; width: 130px; }

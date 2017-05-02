@@ -16,5 +16,33 @@ $colors: (
   orange: #f26222,
   dusk: #565588,
   plum: #692e44,
-  light-gray: #b4b4b4
+  light-gray: #b4b4b4,
+  maroon: #a30a35,
+  black: #454545,
+  white: #ffffff
 );
+
+
+// Typography
+
+$primary: 'Quicksand', Helvetica Neue, Helvetica, sans-serif;
+
+$h1:    30;
+$h2:    12;
+$h3:    16;
+$body:  16;
+$small: 12;
+
+// S P A C E
+$spacer-xs:  30px;
+$spacer-sm:  40px;
+$spacer-md:  45px;
+$spacer-lg:  50px;
+$spacer-xl:  60px;
+$spacer-xxl: 130px;
+
+// Grid Widths
+$full: 100%;
+$half: 50%;
+$third: 33.33%;
+$quarter: 25%;

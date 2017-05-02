@@ -18,9 +18,7 @@
   }
 
   let requestTick = function() {
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-    }
+    if (!ticking) { window.requestAnimationFrame(update); }
     ticking = true;
   }
 

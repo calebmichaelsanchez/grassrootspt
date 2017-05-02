@@ -6,15 +6,7 @@
 .search {
   padding: rem-calc(100) rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat #fff;
-  background-position: 0px -10px;
-  background-size: percentage(600 / 1440) auto;
-  @include respond-to(mobile-plus) {
-    background-size: percentage(400 / 1440) auto;
-  }
-  @include respond-to(ipad-portrait) {
-    background-size: percentage(277 / 1440) auto;
-  }
+  @include background(white);
 }
 .nav-search-form {
   margin-right: 17px;
@@ -50,14 +42,8 @@
       color: #fff;
     }
   }
+  ::-webkit-input-placeholder { color: #454545; }
+  ::-moz-placeholder          { color: #454545; }
+  :-ms-input-placeholder      { color: #454545; }
+  :-moz-placeholder           { color: #454545; }
 }
-::-webkit-input-placeholder { color: #454545; }
-::-moz-placeholder          { color: #454545; }
-:-ms-input-placeholder      { color: #454545; }
-:-moz-placeholder           { color: #454545; }
-// /* Hiding search form in header on small screens */
-// @media (max-width: $breakpoint-small-screen) {
-//   header .search-form {
-//     display: none;
-//   }
-// }

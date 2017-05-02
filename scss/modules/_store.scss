@@ -2,13 +2,5 @@
   padding-top: rem-calc(100);
   padding-bottom: rem-calc(100);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") left no-repeat;
-  background-position: 0px -10px;
-  background-size: percentage(600 / 1440) auto;
-  @include respond-to(mobile-plus) {
-    background-size: percentage(400 / 1440) auto;
-  }
-  @include respond-to(ipad-portrait) {
-    background-size: percentage(277 / 1440) auto;
-  }
+  @include background(white);
 }

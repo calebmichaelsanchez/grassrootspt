@@ -1,16 +1,8 @@
 .contact {
   padding: rem-calc(100) rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat #fff;
-  background-position: 0px -10px;
-  background-size: percentage(600 / 1440) auto;
-  @include respond-to(mobile-plus) {
-    background-size: percentage(400 / 1440) auto;
-  }
-  @include respond-to(ipad-portrait) {
-    background-size: percentage(277 / 1440) auto;
-  }
   color: color(orange);
+  @include background(white);
   a { color: color(orange); }
   h1 {
     font-size: rem-calc(20);

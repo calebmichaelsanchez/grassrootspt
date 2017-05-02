@@ -1,79 +1,39 @@
 .intro {
-  padding-top: rem-calc(60);
-  padding-left: rem-calc(16);
-  padding-right: rem-calc(16);
+  padding: rem-calc(60) rem-calc(16);
   text-align: center;
-  background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color(orange);
-  background-position: 0px -10px;
-  background-size: percentage(600 / 1440) auto;
-  @include respond-to(mobile-plus) {
-    background-size: percentage(400 / 1440) auto;
+  @include background();
+  &__inner {
+    @include container(690px);
+    text-align: left;
+    font-size: 0;
   }
-  @include respond-to(ipad-portrait) {
-    background-size: percentage(277 / 1440) auto;
-  }
-  // &:before {
-  //   content: '';
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   height: 99.75%;
-  //   margin-right: -0.025rem;
-  // }
-  &__video {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: rem-calc(745);
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
     text-align: center;
-    cursor: pointer;
-  }
-  &__text {
-    display: block;
-    position: absolute;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
-    transition: 400ms ease;
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-50%);
-    .active & {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 400ms ease, visibility 0s 400ms linear;
-    }
-    h1 {
-      color: color(orange);
-      text-transform: lowercase;
-      line-height: 1;
-      font-size: rem-calc(32);
-      margin-bottom: rem-calc(10);
-      @include respond-to(ipad-portrait) {
-        font-size: rem-calc(48);
-        margin-bottom: rem-calc(20);
+    &--computer {
+      margin-bottom: 30px;
+      cursor: pointer;
+      @include respond-to(mobile-plus) {
+        width: percentage(388 / 690);
+        margin-right: percentage(62 / 690);
+        margin-bottom: 0;
       }
     }
-    h2 {
-      font-size: rem-calc(16);
-      font-weight: 400;
-      color: color(orange);
-      line-height: 1;
-      text-transform: none;
-      @include respond-to(ipad-portrait) {
-        font-size: rem-calc(24)
+    &--text {
+      @include respond-to(mobile-plus) {
+        width: percentage(240 / 690);
+        text-align: left;
+        transform: translateY(-25%);
       }
     }
-    img {
-      width: 100%;
-      max-width: rem-calc(30);
-      margin-top: rem-calc(15);
-      @include respond-to(ipad-portrait) {
-        max-width: rem-calc(60);
-        margin-top: rem-calc(35);
-      }
-    }
+  }
+  &__title {
+    font-size: rem-calc(24);
+    color: color(white);
+    margin-bottom: 22px;
+    font-weight: normal;
   }
   &__video-container {
     width: 100%;
@@ -109,5 +69,203 @@
       visibility: hidden;
       transition: opacity 400ms ease, visibility 0s 400ms linear;
     }
+  }
+}
+.how {
+  width: 100%;
+  background: color(white);
+  padding: 60px 16px;
+  &__inner {
+    @include container(735px);
+    text-align: center;
+    font-size: 0;
+  }
+  &__item {
+    @include center();
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    vertical-align: top;
+    margin-bottom: 40px;
+    @include respond-to(ipad-portrait) {
+      display: inline-block;
+      width: 33.33%;
+      margin: 0;
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
+    }
+    img {
+      margin-bottom: rem-calc(20);
+      max-height: 79px;
+    }
+  }
+  &__title {
+    font-size: rem-calc(24);
+    color: color(plum);
+    margin-bottom: rem-calc(70);
+    font-weight: normal;
+  }
+  &__subtitle {
+    font-size: rem-calc(14);
+    color: color(plum);
+    font-weight: normal;
+  }
+  &__text {
+    font-size: rem-calc(11);
+    font-weight: normal;
+    color: #6b6b6b;
+  }
+  &__search {
+    display: block;
+    width: 100%;
+    margin-top: rem-calc(60);
+    @include respond-to(mobile-plus) {
+      margin-top: rem-calc(80);
+    }
+  }
+  &__search-link {
+    display: inline-block;
+    font-size: rem-calc(12);
+    color: color(orange);
+    margin-bottom: rem-calc(20);
+  }
+  &__search-form {
+    position: relative;
+    display: inline-block;
+    margin-bottom: rem-calc(40);
+    width: 100%;
+    max-width: rem-calc(515);
+    font-size: 0;
+    text-align: center;
+    z-index: 10;
+    &__item {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+      outline: 0;
+      width: 100%;
+      margin: 0;
+      border: 1px solid color(orange);
+      &--search {
+        font-size: rem-calc(12);
+        color: color(light-gray);
+        padding-top: rem-calc(25);
+        padding-bottom: rem-calc(25);
+        padding-left: rem-calc(10);
+        padding-right: rem-calc(10);
+        text-align: center;
+        @include respond-to(mobile-plus) {
+          width: percentage(640 / 745);
+          text-align: left;
+          padding-left: rem-calc(25);
+          padding-right: rem-calc(25);
+        }
+      }
+      &--button {
+        width: 50%;
+        margin-top: rem-calc(10);
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: rem-calc(21);
+        padding-bottom: rem-calc(21);
+        text-align: center;
+        font-size: rem-calc(24);
+        background-color: color(orange);
+        color: #fff;
+        border: 0;
+        @include respond-to(mobile-plus) {
+          width: percentage(105 / 745);
+          margin-top: 0;
+          border: 1px solid color(orange);
+        }
+      }
+    }
+  }
+}
+.about-us {
+  display: block;
+  width: 100%;
+  border-top: 25px solid color(maroon);
+  padding: 100px 16px;
+  background-color: color(white);
+  &__inner {
+    @include container(580px);
+    text-align: center;
+  }
+  &__title {
+    font-size: rem-calc(24);
+    color: color(maroon);
+    margin-bottom: 22px;
+    font-weight: normal;
+  }
+  &__text {
+    font-size: rem-calc(14);
+    color: color(maroon);
+    line-height: 1.42;
+    font-weight: normal;
+  }
+  &__link {
+    html & {
+      text-transform: none;
+      margin-top: rem-calc(22);
+    }
+  }
+}
+.library {
+  display: block;
+  width: 100%;
+  border-top: 25px solid color(orange);
+  padding: 100px 16px;
+  background-color: color(white);
+  img { cursor: pointer; }
+  &__inner {
+    @include container(1000);
+    text-align: center;
+    font-size: 0;
+  }
+  &__title {
+    font-size: rem-calc(24);
+    color: color(dusk);
+    font-weight: normal;
+  }
+  &__subtitle {
+    font-size: rem-calc(14);
+    color: color(dusk);
+    font-weight: normal;
+    margin-bottom: 50px;
+  }
+  &__item {
+    display: block;
+    width: 100%;
+    max-width: 315px;
+    @include center();
+    margin-bottom: 40px;
+    @include respond-to(ipad-portrait) {
+      display: inline-block;
+      vertical-align: top;
+      width: 33.33%;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-bottom: 0;
+    }
+    &-inner {
+      padding: rem-calc(10);
+    }
+    &-title {
+      font-size: rem-calc(14);
+      color: color(orange);
+    }
+    &-text {
+      font-size: rem-calc(11);
+      color: #545454;
+    }
+  }
+  &__quote {
+    display: block;
+    @include container(635px);
+    font-size: rem-calc(24);
+    color: color(dusk);
+    margin-top: rem-calc(70);
+    font-weight: normal;
   }
 }

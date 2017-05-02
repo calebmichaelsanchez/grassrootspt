@@ -1,7 +1,8 @@
 !(function() {
-  let trailer = document.querySelector("#trailer");
+  let collection = document.querySelector("#product-collection");
+  let productDetail = document.querySelector("#product-detail");
 
-  if (trailer) {
+  if (collection || productDetail) {
     let data = $("#trailer").data("trailer");
     $("#container").append(`<div class="trailer"><div class="trailer__inner"><div class="trailer__magic"><iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/${data}?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div></div><a class="close" href="#"></a></div>`);
 

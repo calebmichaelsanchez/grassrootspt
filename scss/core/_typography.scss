@@ -3,84 +3,22 @@
 .section-margins   { margin: 0 0 2 * $gutter;   }
 
 h1, h2, h3, h4, h5, h6 {
-  text-rendering: optimizeLegibility; /* to enable ligatures and kerning */
-  margin: 0;
-  padding: 0;
   @extend .paragraph-margins;
 }
 
-/* http://modularscale.com/scale/?px1=16&px2=32&ra1=1.667&ra2=0 */
-
-.tera {
-  font-size: 5.558 * $base-font-size;
-  line-height: 1;
-}
-
-.giga {
-  font-size: 4.632 * $base-font-size;
-  line-height: 1;
-}
-
-.mega {
-  font-size: 3.334 * $base-font-size;
-  line-height: 1;
-}
-
-.alpha, h1 {
-  font-size: rem-calc(30);
-  //line-height: 1.1;
-}
-
-.beta, h2 {
-  font-size: rem-calc(12);
-  text-transform: uppercase;
-}
-
-.gamma, h3 {
-  font-size: rem-calc(16);
-  line-height: 1.2;
-}
-
-.delta, h4 {
-  font-size: 1.2 * $base-font-size;
-  line-height: 1.4;
-}
-
-.epsilon, h5 {
-  font-size: 1 * $base-font-size;
-  line-height: 1.6;
-}
-
-.zeta, h6 {
-  font-size: 0.72 * $base-font-size;
-  line-height: 1.6;
-}
-
+h1 { @include h1(); }
+h2 { @include h2(); }
+h3 { @include h3(); }
+.small { @include small(); }
 p {
-  font-size: rem-calc(16);
-  @include respond-to(ipad-portrait) {
-    font-size: rem-calc(20);
-  }
+  @include p();
   .template-page & {
     font-weight: 400;
     margin-bottom: rem-calc(10);
   }
 }
-
-/* Styling all pages main heading in one fell swoop. */
-#main > h1, #main .title, .product-details h1 {
-  @extend .beta;
-}
-
-.quiet { color: lighten( $text-color, 10% ); }
-.hint { color: lighten( $text-color, 15% ); }
-i, em { font-style: italic; }
-b, strong { font-weight: 700; }
-.small { font-size: rem-calc(12) }
-
 a {
-  color: $link-color;
-  text-decoration: none;
+  @include a();
   &:hover {
     color: darken( $link-color, 10% );
   }
@@ -95,7 +33,7 @@ a {
     color: color(orange);
   }
 }
-
+i, em { font-style: italic; }
+b, strong { font-weight: 700; }
 #customer { @extend .section-margins; }
 p, form > div { @extend .paragraph-margins; }
-//p:last-of-type { margin-bottom: 0; }
