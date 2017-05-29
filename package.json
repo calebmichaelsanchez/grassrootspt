@@ -21,6 +21,7 @@
     "watch:js": "onchange \"./js\" -- npm run js:dev",
     "watch:scss": "onchange \"./scss\" -- npm run css:dev",
     "start": "npm run watch:dev",
+    "start:prod": "npm run watch:prod",
     "build": "npm-run-all js:prod css:prod"
   },
   "author": "",
