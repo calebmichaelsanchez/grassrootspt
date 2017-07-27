@@ -1,6 +1,7 @@
 .grid {
   font-size: 0;
   text-align: center;
+  margin-bottom: 0;
   &--store h1, &--toolkits h1 {
     display: block;
     margin-left: auto;
@@ -10,11 +11,15 @@
     text-align: center;
     margin-bottom: rem-calc(25);
   }
-  &--store {
+  &--store, &--collection {
     max-width: rem-calc(880);
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+  }
+  &--collection {
+    padding-top: rem-calc(100);
+    padding-bottom: rem-calc(100);
   }
   &--toolkits {
     max-width: rem-calc(880);
@@ -33,6 +38,21 @@
   }
 }
 
+.collection {
+  &-title {
+    display: block;
+    margin-bottom: 0.3125rem;
+    font-family: "Quicksand", Helvetica Neue, Helvetica, sans-serif;
+    font-stretch: normal;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+    color: color(orange);
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
 .product {
   display: inline-block;
   vertical-align: top;
@@ -114,7 +134,7 @@
     }
   }
   &--Video {
-    padding: rem-calc(100) rem-calc(16) rem-calc(32);
+    padding: rem-calc(100) rem-calc(16);
     text-align: center;
     background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color(orange);
     background-position: 0px -10px;
@@ -223,6 +243,7 @@
     font-weight: 400;
     color: #454545;
   }
+  p { margin-bottom: rem-calc(10); }
   &__link {
     display: block;
     margin-bottom: rem-calc(5);
