@@ -78,6 +78,7 @@
   }
   &__link {
     font-size: 11.25px;
+    font-weight: 700;
     text-transform: uppercase;
     color: color(dusk);
     letter-spacing: -0.01rem;
@@ -105,6 +106,7 @@
   &__sub-link {
     display: block;
     font-size: 10px;
+    font-weight: 700;
     color: #fff;
     padding: rem-calc(9);
     &:hover { color: color(orange); }

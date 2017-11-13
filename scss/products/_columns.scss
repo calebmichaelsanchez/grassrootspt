@@ -1,0 +1,38 @@
+.product-columns {
+  display: block;
+  width: 100%;
+  max-width: rem-calc(640);
+  margin-left: auto;
+  margin-right: auto;
+  color: color(orange);
+  text-decoration: none;
+  font-size: 0;
+  text-align: center;
+  margin-top: rem-calc(50);
+  padding-left: rem-calc(16);
+  padding-right: rem-calc(16);
+  @include respond-to(ipad-landscape) {
+    margin-top: rem-calc(100);
+    max-width: rem-calc(880);
+    padding: 0;
+  }
+  &:hover { color: color(orange); }
+  > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .product--Video & > div:first-of-type {
+    @include respond-to(ipad-landscape) {
+      width: 70%;
+      margin-right: 5%;
+      margin-left: 0;
+    }
+  }
+  .product--Video & > div:last-of-type {
+    margin-top: rem-calc(25);
+    @include respond-to(ipad-landscape) {
+      margin-top: 0;
+      width: 25%;
+    }
+  }
+}

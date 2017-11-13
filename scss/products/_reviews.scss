@@ -1,0 +1,26 @@
+.product-reviews {
+  display: block;
+  width: 100%;
+  max-width: rem-calc(500);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: rem-calc(50);
+  @include respond-to(ipad-landscape) {
+    max-width: rem-calc(880);
+  }
+  #shopify-product-reviews {
+    display: block;
+    width: 100%;
+    .spr-container {
+      border: none;
+    }
+    .spr-icon {
+      font-size: rem-calc(16);
+    }
+    .spr-button, .spr-button-primary {
+      font-size: rem-calc(16);
+      padding: rem-calc(10) rem-calc(15);
+      float: none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.product-kit {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  &__title {
+    font-size: rem-calc(18);
+    color: color(orange);
+    text-transform: uppercase;
+  }
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    text-align: left;
+    @include respond-to(ipad-landscape) {
+      width: 100%;
+    }
+  }
+}

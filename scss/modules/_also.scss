@@ -6,11 +6,16 @@
   margin-right: auto;
   border-top: rem-calc(10) solid color(orange);
   margin-top: rem-calc(50);
-  text-align: center;
+  text-align: left;
   font-size: 0;
   margin-bottom: 0;
-  @include respond-to(ipad-landscape) {
-    max-width: rem-calc(880);
+  font-size: rem-calc(14);
+  a { font-size: rem-calc(14); }
+  p {
+    font-size: rem-calc(14);
+    text-align: left;
+    font-weight: 400;
+    color: #454545;
   }
   &-title {
     width: 100%;
@@ -28,11 +33,22 @@
     padding-top: rem-calc(16);
     padding-bottom: rem-calc(16);
     @include respond-to(mobile-plus) {
-      width: 50%;
-      padding: rem-calc(16);
+      width: calc(50% - 10px);
+      margin-right: 20px;
+      &:last-of-type { margin-right: 0; }
     }
     @include respond-to (ipad-landscape) {
       width: 33.33%;
+      width: calc(33.33% - 10px);
+      margin-right: 15px;
+      &:last-of-type { margin-right: 0;}
     }
+  }
+  @include respond-to(mobile) {
+    font-size: rem-calc(12);
+    a, p { font-size: rem-calc(12); }
+  }
+  @include respond-to(ipad-landscape) {
+    max-width: rem-calc(880);
   }
 }

@@ -1,13 +1,11 @@
-var path      = require("path");
-var ROOT_PATH = path.resolve(__dirname);
-var APP_PATH  = path.resolve(ROOT_PATH, "js");
+var path = require("path");
 
 module.exports = {
   resolve: {
-    root: __dirname,
+    root: path.resolve(__dirname),
     extensions: ['', '.js']
   },
-  entry: APP_PATH,
+  entry: path.resolve(__dirname, "js"),
   output: {
     path: "./template/assets/",
     filename: "app.js.liquid"
@@ -17,4 +15,4 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
   }
-};
+}

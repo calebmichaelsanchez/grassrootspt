@@ -1,0 +1,13 @@
+.product-variants {
+  width: 100%;
+  margin-bottom: rem-calc(10);
+  font-size: rem-calc(16);
+  &.hidden {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    width: auto;
+    margin-right: rem-calc(10);
+  }
+}

@@ -17,6 +17,9 @@ p {
     margin-bottom: rem-calc(10);
   }
 }
+ul {
+  @include p()
+}
 a {
   @include a();
   &:hover {

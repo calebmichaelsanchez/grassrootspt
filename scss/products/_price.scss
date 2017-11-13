@@ -1,0 +1,9 @@
+.product-price {
+  font-size: rem-calc(14);
+  color: #454545;
+  font-weight: 700;
+  @include respond-to(mobile) {
+    font-size: rem-calc(16);
+    .product--general & { font-size: rem-calc(12); }
+  }
+}

@@ -1,0 +1,46 @@
+.product-button {
+  width: rem-calc(94);
+  .product--Video &,
+  .product--Kit &,
+  .product--Combination &,
+  .product-detail & {
+    width: rem-calc(94);
+    margin-top: rem-calc(10);
+    @include respond-to(ipad-landscape) {
+      margin-top: 0;
+    }
+  }
+  .product--Video .product-kit & {
+    width: auto;
+    max-width: 215px;
+  }
+  a.product-button__submit,
+  input.product-button__submit {
+    display: block;
+    height: rem-calc(94);
+    white-space: normal;
+    border-radius: 50%;
+    color: #fff;
+    background-color: color(plum);
+    text-transform: uppercase;
+    font-size: rem-calc(17);
+    text-align: center;
+    border: none;
+    outline: none;
+    &:hover { color: #fff; }
+    &--secondary {
+      width: 100%;
+      text-transform: none;
+      background-color: color(orange);
+      font-size: rem-calc(12);
+      padding: rem-calc(10) rem-calc(15);
+      margin-top: rem-calc(15);
+      color: #fff;
+      border-radius: 0;
+      height: auto;
+    }
+  }
+  a.product-button__submit {
+    padding-top: rem-calc(23);
+  }
+}

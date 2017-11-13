@@ -72,6 +72,9 @@
   }
   &__name {
     text-transform: uppercase;
+    font-size: rem-calc(22);
+    color: color(plum);
+    font-weight: bold;
     margin-bottom: rem-calc(12);
   }
   &__content, &__content p {
@@ -85,7 +88,7 @@
       font-size: rem-calc(14);
       color: color(orange);
       font-weight: bold;
-      text-transform: uppercase;
+      text-transform: none;
       @include respond-to(mobile) {
         font-size: rem-calc(12);
       }

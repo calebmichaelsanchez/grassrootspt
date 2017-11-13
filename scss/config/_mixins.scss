@@ -60,9 +60,7 @@ $breakpoints: (
 @mixin p() {
   @include font-primary();
   font-size: rem-calc($body);
-  @include respond-to(ipad-portrait) {
-    font-size: rem-calc(20);
-  }
+  font-weight: 400;
 }
 @mixin a() {
   @include font-primary();

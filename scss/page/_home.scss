@@ -1,3 +1,7 @@
+#fsb_bar {
+  background-color: #ffffff !important;
+  color: color(dusk) !important;
+}
 .intro {
   padding: rem-calc(60) rem-calc(16);
   text-align: center;
@@ -134,7 +138,7 @@
     font-size: rem-calc(24);
     color: color(plum);
     margin-bottom: rem-calc(70);
-    font-weight: normal;
+    font-weight: bold;
   }
   &__subtitle {
     font-size: rem-calc(14);
@@ -220,14 +224,14 @@
   padding: 100px 16px;
   background-color: color(white);
   &__inner {
-    @include container(580px);
+    @include container(640px);
     text-align: center;
   }
   &__title {
     font-size: rem-calc(24);
     color: color(maroon);
     margin-bottom: 22px;
-    font-weight: normal;
+    font-weight: bold;
   }
   &__text {
     font-size: rem-calc(14);
@@ -257,7 +261,7 @@
   &__title {
     font-size: rem-calc(24);
     color: color(dusk);
-    font-weight: normal;
+    font-weight: bold;
   }
   &__subtitle {
     font-size: rem-calc(14);
@@ -298,5 +302,6 @@
     color: color(dusk);
     margin-top: rem-calc(70);
     font-weight: normal;
+    font-style: italic;
   }
 }
