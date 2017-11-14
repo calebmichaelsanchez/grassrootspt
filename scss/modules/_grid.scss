@@ -2,6 +2,26 @@
   font-size: 0;
   text-align: center;
   margin-bottom: 0;
+  &--also {
+    display: block;
+    width: 100%;
+    max-width: rem-calc(640);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: rem-calc(50);
+    text-align: left;
+    margin-bottom: 0;
+    padding-left: rem-calc(16);
+    padding-right: rem-calc(16);
+    @include respond-to(ipad-landscape) {
+      max-width: rem-calc(880);
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &--search:first-of-type {
+    margin-bottom: rem-calc(50);
+  }
   &--store h1, &--toolkits h1 {
     display: block;
     margin-left: auto;
@@ -43,8 +63,11 @@
     padding: 1rem;
     a {
       display: block;
-      font-size: rem-calc(12);
+      font-size: rem-calc(14);
       text-align: left;
+      @include respond-to(mobile) {
+
+      }
     }
     &--quarter {
       width: 100%;
@@ -70,6 +93,13 @@
         font-weight: 700;
         color: color(orange);
         margin-top: rem-calc(15);
+      }
+      &__title {
+        margin-bottom: rem-calc(5);
+      }
+      &__price {
+        font-weight: 700;
+        font-size: rem-calc(12);
       }
     }
   }

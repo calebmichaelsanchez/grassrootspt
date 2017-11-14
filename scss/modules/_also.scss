@@ -24,6 +24,7 @@
     font-size: rem-calc(24);
     color: color(orange);
     padding-top: rem-calc(24);
+    border-top: rem-calc(10) solid color(orange);
   }
   li {
     display: inline-block;

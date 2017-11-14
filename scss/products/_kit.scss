@@ -2,6 +2,7 @@
   display: inline-block;
   vertical-align: top;
   font-size: 0;
+  text-align: left;
   &__title {
     font-size: rem-calc(18);
     color: color(orange);
@@ -10,10 +11,8 @@
   &__item {
     display: inline-block;
     vertical-align: middle;
-    width: 50%;
-    text-align: left;
-    @include respond-to(ipad-landscape) {
-      width: 100%;
-    }
+    width: 100%;
+    @include respond-to(mobile) { width: 50%; }
+    @include respond-to(ipad-landscape) { width: 100%; }
   }
 }

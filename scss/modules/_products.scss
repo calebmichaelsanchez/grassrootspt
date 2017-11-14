@@ -19,16 +19,10 @@
   text-align: left;
   width: 100%;
   color: color(orange);
-  @include respond-to(mobile) { width: 50%; }
-  @include respond-to(ipad-portrait) { width: 33.33%; }
-  @include respond-to(ipad-landscape) {
-    width: 25%;
-    &--free-video { width: 33.33%; }
-  }
-  &-general {
+  &--general {
     padding: rem-calc(100) rem-calc(16);
   }
-  &--Video, &--Kit, &--Combination, .product-detail & {
+  &--Video, .product--general & {
     width: 100%;
     font-size: 0;
     text-align: left;
@@ -39,11 +33,12 @@
   &__inner {
     display: block;
     width: 100%;
-    max-width: rem-calc(500);
+    max-width: rem-calc(640);
     margin-left: auto;
     margin-right: auto;
     color: color(orange);
     text-decoration: none;
+    font-size: 0;
     @include respond-to(ipad-landscape) {
       max-width: rem-calc(880);
     }
@@ -59,14 +54,14 @@
   .product-instructions {
     margin-top: rem-calc(30);
   }
-  &.product-detail--free-video {
+  &--free-video {
     .product-image__bg:after { content: "click to watch video"; }
     .product-button { display: none !important; }
     @include respond-to(ipad-landscape) {
       .product-image, .product-info {
         width: 50% !important;
-        margin: 0;
-        padding: rem-calc(16);
+        margin: 0 !important;
+        padding: rem-calc(16) !important;
       }
     }
   }
