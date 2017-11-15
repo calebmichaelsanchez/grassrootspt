@@ -1,4 +1,5 @@
 .product-columns {
+  position: relative;
   display: block;
   width: 100%;
   max-width: rem-calc(640);
@@ -11,6 +12,20 @@
   margin-top: rem-calc(50);
   padding-left: rem-calc(16);
   padding-right: rem-calc(16);
+  &:after {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 30%;
+    width: 1px;
+    height: 100%;
+    background-color: color(orange);
+    z-index: 10;
+    @include respond-to(ipad-landscape) {
+      display: block;
+    }
+  }
   @include respond-to(ipad-landscape) {
     margin-top: rem-calc(100);
     max-width: rem-calc(880);
@@ -24,7 +39,8 @@
   .product--Video & > div:first-of-type {
     @include respond-to(ipad-landscape) {
       width: 70%;
-      margin-right: 5%;
+      padding-right: 5%;
+      margin-right: 0;
       margin-left: 0;
     }
   }
