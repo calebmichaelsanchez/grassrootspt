@@ -1,13 +1,9 @@
 var path = require("path");
 
 module.exports = {
-  resolve: {
-    root: path.resolve(__dirname),
-    extensions: ['', '.js']
-  },
   entry: path.resolve(__dirname, "js"),
   output: {
-    path: "./template/assets/",
+    path: path.resolve(__dirname, "template/assets"),
     filename: "app.js.liquid"
   },
   module: {

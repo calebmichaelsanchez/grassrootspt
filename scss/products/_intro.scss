@@ -1,5 +1,5 @@
 .product-intro {
-  padding: rem-calc(100) rem-calc(16);
+  padding: rem-calc(75) rem-calc(16);
   text-align: center;
   background: url("{{ 'purple-flourish-lg.png' | asset_url }}") no-repeat color(orange);
   background-position: 0px -10px;
@@ -15,30 +15,43 @@
     position: relative;
     display: block;
     width: 100%;
+    margin-bottom: rem-calc(25);
     @include respond-to(ipad-landscape) {
       display: inline-block;
       vertical-align: middle;
-      width: percentage(500 / 880);
+      width: percentage(440 / 880);
       margin-right: percentage(30 / 880);
       margin-bottom: 0;
     }
-    &:before {
+    &:before, &:after {
       content: '';
       position: absolute;
-      top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+    }
+    &:before {
+      content: 'click to watch trailer';
+      width: 100%;
+      top: 40%;
+      font-family: $primary;
+      color: color(orange);
+      font-size: rem-calc(28);
+    }
+    &:after {
+      top: 63%;
       width: 60px;
       height: 60px;
       background: url("{{ 'play-button.png' | asset_url }}") center center no-repeat;
       background-size: 60px 60px;
-      transform: translate(-50%, -50%);
-      z-index: 5;
     }
   }
   &__button {
     display: inline-block;
+    width: 100%;
     @include respond-to(ipad-landscape) {
       vertical-align: middle;
+      width: percentage(270 / 880);
     }
   }
 }

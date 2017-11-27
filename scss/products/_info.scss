@@ -18,6 +18,13 @@
       font-weight: 700;
     }
   }
+  .product--Video .product-intro & {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: rem-calc(20);
+    &__title { color: #fff; }
+  }
   .product--Video & {
     &__description {
       margin-top: rem-calc(30);

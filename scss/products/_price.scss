@@ -6,4 +6,7 @@
     font-size: rem-calc(16);
     .product--general & { font-size: rem-calc(12); }
   }
+  .product--Video .product-intro & {
+    color: #fff;
+  }
 }

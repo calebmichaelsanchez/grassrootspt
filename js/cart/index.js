@@ -2,7 +2,6 @@
   let cart = document.querySelector("#cart");
 
   if (cart) {
-    console.log("Cart page");
     $('body').on('click', '[name="checkout"], [name="goto_pp"], [name="goto_gc"]', function() {
       if ($('#agree').is(':checked') && $('#agree-2').is(':checked')) {
         $(this).submit();
