@@ -11,7 +11,12 @@
     &__description {
       margin-top: rem-calc(10);
       margin-bottom: rem-calc(10);
-      ul { margin: 0; padding: 0; }
+      ul {
+        margin: 0;
+        padding: 0;
+        padding-left: 40px;
+        list-style-type: disc;
+      }
     }
     &__price {
       margin-bottom: 0;

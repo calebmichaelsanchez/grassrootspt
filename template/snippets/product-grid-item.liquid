@@ -1,0 +1,49 @@
+{% comment %}Is this product on sale?{% endcomment %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+<li class="product {% if product.type != '' %} product--{{ product.type }}{% endif %}">
+  <div class="product__inner">
+    <div class="product__item product-image">
+      {% if product.type == 'Video' or product.type == 'Free Video' %}
+        <a id="trailer" class="product-image__link product-image__link--video" href="#" data-trailer="{{ product.vendor }}">
+          <img class="product-image__img" src="{{ product | img_url: '680x680' }}" alt="{{ product.featured_image.alt | escape }}" />
+          <!-- <div class="product-image__bg"></div> -->
+        </a>
+      {% endif %}
+    </div>
+    <div class="product__item product-info">
+      <a class="product-info__link" href="{{ product.url }}">
+        {{ product.title }}
+      </a>
+      <div class="stars">
+        <div class="yotpo bottomLine" data-appkey="ryl7o3ETWyJDkLiJIzyY4V4AJQfVilavMR050fjc" data-domain="{{shop.permanent_domain | escape }}" data-product-id="{{ product.id }}" data-product-models="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}"></div>
+      </div>
+      {% if product.type != '' %}
+        <p class="product-info__description">
+          {% if product.type == "Video" %}
+            {{ product.description | truncate: 350 }}
+          {% else %}
+            {{ product.description }}
+          {% endif %}
+        </p>
+      {% endif %}
+      <p class="product-info__price">
+        {% if product.price_varies %}From{% endif %}
+        {{ product.price | money }}
+        {% if on_sale %}
+        <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+        {% endif %}
+      </p>
+      {% comment %}
+        All themes by Shopify should support the Product Reviews app out of the box.
+        https://apps.shopify.com/product-reviews
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {% endcomment %}
+    </div>
+    <div class="product__item product-button">
+       <a class="product-button__submit" href="{{ product.url }}"/>Learn More</a>
+    </div>
+  </div>
+</li>

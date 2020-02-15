@@ -1,0 +1,8 @@
+<section class="store">
+  <ul class="grid grid--store">
+    <h1>Self Treatment Tools</h1>
+    {% for product in collections['self-treatment-tools'].products %}
+    {% include 'store-grid-item' %}
+    {% endfor %}
+  </ul>
+</section>

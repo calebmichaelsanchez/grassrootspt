@@ -1,0 +1,26 @@
+<section class="about">
+  <div class="about__text">
+    <p>{{ page.content }}</p>
+  </div>
+</section>
+<section class="employees">
+  <ul class="employees__list">
+    {% for article in blogs["employees"].articles reversed %}
+      <li class="employees__item">
+        <ul class="employee">
+          <li class="employee__item employee__item--image">
+            <img class="employee__image" src="{{ article.image.src | img_url: '215x215' }}" />
+          </li>
+          <li class="employee__item employee__item--text">
+            <div class="employee__name">
+              {{ article.title }}
+            </div>
+            <div class="employee__content">
+              {{ article.content }}
+            </div>
+          </li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

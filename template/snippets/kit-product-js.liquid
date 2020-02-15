@@ -1,0 +1,52 @@
+<script>
+  var mainProduct = "{{ product.title }}";
+  var kitProducts = [];
+  var shopifyQueue = [];
+  var addToCart = document.getElementById("addKit");
+
+  Shopify.moveAlong = function() {
+    // If we still have requests in the queue, let's process the next one.
+    if (shopifyQueue.length) {
+      var request = shopifyQueue.shift();
+      Shopify.addItem(request.variantId, request.quantity, Shopify.moveAlong);
+    }
+    // If the queue is empty, we will redirect to the cart page.
+    else { document.location.href = '/cart'; }
+  };
+
+  {% if product.metafields.kitProducts.productHandles %}
+    kitProducts = jQuery.trim({{ product.metafields.kitProducts.productHandles | json }}).split(/[\s,;]+/);
+  {% endif %}
+
+  if (kitProducts.length && kitProducts[0] !== '') {
+    for (var i=0; i < kitProducts.length; i++) {
+      jQuery.getJSON('/products/' + kitProducts[i] + '.js', function(product) {
+        if (!product.available) {
+          jQuery('.product-info__out-of-stock').addClass('active');
+          jQuery('#add').val({{ sold_out | json }}).addClass('disabled').prop('disabled', true);
+          return;
+        }
+        for (var j=0; j < product.variants.length; j++) {
+          var variantId;
+          if ((mainProduct === "Healthy Shoulder Tool Kit" || mainProduct === "Healthy Shoulder Video + Tool Kit") && product.title === "TheraBand Bands") {
+            shopifyQueue.push( { quantity: 1, variantId: product.variants[2].id } );
+            break;
+          } else if ((mainProduct == "Healthy Hand & Wrist Tool Kit" || mainProduct == "Healthy Hand & Wrist Video + Tool Kit" || mainProduct == "Healthy Foot & Ankle Tool Kit" || mainProduct == "Healthy Foot & Ankle Video + Tool Kit" || mainProduct == "Climber's Tool Kit" || mainProduct == "Climber's Video + Tool Kit") && product.title === "TheraBand Bands") {
+            shopifyQueue.push( { quantity: 1, variantId: product.variants[0].id } );
+            break;
+          } else {
+            variantId = product.variants[j].id
+          }
+          var q = product.variants[j].name === "Trigger Point Ball" ? 2 : 1;
+          var item = { quantity: q, variantId: variantId }
+          shopifyQueue.push( item );
+        }
+      });
+    }
+    jQuery(addToCart).click(function(e) {
+      e.preventDefault();
+      Shopify.moveAlong();
+    });
+  }
+</script>
+

@@ -1,0 +1,12 @@
+development:
+  password: ${DEV_PASSWD}
+  theme_id: ${DEV_THEMEID}
+  store:    ${DEV_SHOP}
+preproduction:
+  password: ${PREPROD_PASSWD}
+  theme_id: ${PREPROD_THEMEID}
+  store:    ${PREPROD_SHOP}
+production:
+  password: ${PROD_PASSWD}
+  theme_id: ${PROD_THEMEID}
+  store:    ${PROD_SHOP}

@@ -1,0 +1,44 @@
+{% layout settings.customer_layout %}
+<section class="account account--register">
+<div class="account__item">
+<div id="template">
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+	    <h2 class="account__title">Create Account</h2>
+
+	    {% form 'create_customer' %}
+	      {{ form.errors | default_errors }}
+
+	      <div class="account__name account__name--first">
+	        <!-- <label for="first_name" class="login">First Name</label> -->
+	        <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" placeholder="first name"/>
+	      </div>
+
+	      <div class="account__name account__name--last">
+	        <!-- <label for="last_name" class="login">Last Name</label> -->
+	        <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" placeholder="last name"/>
+	      </div>
+
+	      <div class="account__email">
+	        <!-- <label for="email" class="login">Email Address</label> -->
+	        <input type="email" value="" name="customer[email]" id="email" class="large" size="30" placeholder="email"/>
+	      </div>
+
+	      <div class="account__password">
+	        <!-- <label for="password" class="login">Password</label> -->
+	        <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" placeholder="password" />
+	      </div>
+
+	      <div class="account__button">
+	        <input class="btn" type="submit" value="Create" />
+	      </div>
+	      <div class="account__return-to-store">
+	      	<a class="account__link" href="{{ shop.url }}">or Return to Store ></a>
+	      </div>
+	    {% endform %}
+	  </div><!-- /#create-customer -->
+  </div>
+</div>
+</div>
+<section>

@@ -1,0 +1,35 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: http://wiki.shopify.com/Related_Products -->
+
+{% assign image_size = 'grande' %}
+
+{% if product.metafields.kitProducts.productHandles %}
+
+<ul id="kit-products" class="product-kit__list"></ul>
+
+{% endif %}
+
+<script type="text/javascript">
+//<![CDATA[
+  var kitProducts = [];
+  {% if product.metafields.kitProducts.productHandles %}
+  kitProducts = jQuery.trim({{ product.metafields.kitProducts.productHandles | json }}).split(/[\s,;]+/);
+  {% endif %}
+  if (kitProducts.length && kitProducts[0] !== '') {
+    var kitList = jQuery('ul#kit-products');
+    for (var i=0; i<kitProducts.length; i++) {
+      jQuery.getJSON('/products/' + kitProducts[i] + '.js', function(product) {
+        var price = product.price;
+        var productPrice = '$' + (product.price / 100);
+        var html = product.description;
+        var div = document.createElement('div');
+        div.innerHTML = html;
+        var description = div.textContent || div.innerText || "";
+        var truncatedDescription = description.substring(0, 150);
+        kitList.append('<li class="grid__item product-kit__item"><a href="' + product.url + '"><img class="product-kit__image" src="' + product.images[0].replace(/(\.jpg|\.png|\.jpeg|\.gif)/, '_{{ image_size }}$1') + '" /><div class="grid__item__info"><div class="grid__item__info__title">' + product.title + '</div><div class="grid__item__info__description">' + truncatedDescription + '...</div><div class="grid__item__info__learn-more">Learn More >></div></div></a></li>');
+      });
+    }
+  }
+//]]>
+</script>
+

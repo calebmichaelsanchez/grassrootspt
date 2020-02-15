@@ -1,0 +1,43 @@
+<nav class="nav-mobile">
+  <ul class="nav-mobile__menu">
+    {% for link in linklists.main-menu.links %}
+    {% assign has_sub_menu = false %}
+    {% assign has_sub_categories = false %}
+    {% assign parent_link_active = false %}
+    {% assign child_list_handle = link.title | handle %}
+    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+      {% assign has_sub_menu = true %}
+      {% for l in linklists[child_list_handle].links %}
+        {% if handle != blank and handle == l.object.handle %}
+          {% assign parent_link_active = true %}
+        {% elsif page_title == l.title %}
+          {% assign parent_link_active = true %}
+        {% endif %}
+      {% endfor %}
+    {% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+      {% assign has_sub_categories = true %}
+    {% endif %}
+    <li class="{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} mobile-has-dropdown{% endif %} nav-mobile__item">
+      <a class ="nav-mobile__link" href="{{ link.url }}">{{ link.title }}</a>
+      {% if has_sub_menu or has_sub_categories %}
+      <a href="#" class="toggle-sub-menu"></a>
+      <ul class="nav-mobile__sub-menu">
+        {% if has_sub_menu %}
+          {% for l in linklists[child_list_handle].links %}
+          <li class="{% if l.active %} active{% endif %} nav-mobile__sub-item">
+            <a class="nav-mobile__sub-link" href="{{ l.url }}">{{ l.title }}</a>
+          </li>
+          {% endfor %}
+        {% elsif has_sub_categories %}
+          {% for tag in link.object.all_tags %}
+          <li class="{% if current_tags contains tag %} active{% endif %} nav-mobile__sub-item">
+            <a class="nav-mobile__sub-link" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

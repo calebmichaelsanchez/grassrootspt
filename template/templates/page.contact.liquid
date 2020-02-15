@@ -1,0 +1,38 @@
+<section class="contact">
+  <div class="contact__item">
+    {{ page.content }}
+  </div>
+  <div class="contact__item">
+  {% form 'contact' %}
+
+    {% if form.posted_successfully? %}
+      <div class="successForm feedback">
+        {{ 'contact.form.post_success' }}
+      </div>
+    {% endif %}
+
+    {% if form.errors %}
+    <div class="errorForm feedback">
+      <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+      <p class="gamma">Your contact form has {{ form.errors | size | pluralize: "an error", "a few errors" }}. To submit your form, make the following changes and try again:</p>
+      {% for field in form.errors %}
+        <p class="gamma">The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div id="contactFormWrapper">
+      <fieldset>
+        <label class="hidden">Email</label>
+        <input type="email" required id="contactFormEmail" name="contact[email]" placeholder="Email">
+      </fieldset>
+      <fieldset>
+        <label class="hidden">Message</label>
+        <textarea required rows="10" id="contactFormMessage" name="contact[body]" placeholder="Message"></textarea>
+      </fieldset>
+      <input type="submit" id="contactFormSubmit" value="Send" />
+    </div>
+
+  {% endform %}
+  </div>
+</section>

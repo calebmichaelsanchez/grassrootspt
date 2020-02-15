@@ -1,0 +1,10 @@
+<section class="toolkits">
+  <ul class="grid grid--toolkits">
+    <h1>Self Treatment Videos</h1>
+    {% for product in collections['videos'].products %}
+      {% if product.type == 'Video' %}
+        {% include 'video-collection-grid-item' %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

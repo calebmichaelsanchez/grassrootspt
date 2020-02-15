@@ -1,0 +1,8 @@
+<section class="store">
+  <ul class="grid grid--store">
+    <h1>Free Video Content</h1>
+    {% for product in collections['free-videos'].products %}
+    {% include 'free-grid-item' %}
+    {% endfor %}
+  </ul>
+</section>

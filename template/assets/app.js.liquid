@@ -1,0 +1,335 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(1);
+
+__webpack_require__(2);
+
+__webpack_require__(3);
+
+__webpack_require__(4);
+
+__webpack_require__(5);
+
+__webpack_require__(6);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function () {
+  var home = document.getElementById("intro");
+
+  if (home) {
+
+    // save this just in case
+    // function vimeoClick(clickId, trailerId, closeId, video) {
+    //   clickId.click(function(e) {
+    //     e.preventDefault();
+    //     trailerId.fadeIn(600);
+    //     video.play();
+    //   });
+
+    //   closeId.click(function(e) {
+    //     e.preventDefault();
+    //     video.pause();
+    //     trailerId.fadeOut(600);
+    //   });
+    // }
+
+    var ytClick = function ytClick(clickId, trailerId, closeId, video) {
+      clickId.click(function (e) {
+        e.preventDefault();
+        trailerId.fadeIn(600);
+      });
+
+      closeId.click(function (e) {
+        e.preventDefault();
+        video.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        trailerId.fadeOut(600);
+      });
+    };
+
+    // i hate myself for this
+    // I will make this more workable later
+    $("#container").append("<div id=\"trailer-01\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-01\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ylLbqW8s7kI?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-01\" class=\"close\" href=\"#\"></a></div>");
+    $("#container").append("<div id=\"trailer-02\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-02\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-WCQaz2O6Uo?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-02\" class=\"close\" href=\"#\"></a></div>");
+    $("#container").append("<div id=\"trailer-03\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-03\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/lDs1esuqUDs?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-03\" class=\"close\" href=\"#\"></a></div>");
+    $("#container").append("<div id=\"trailer-04\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-04\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ApVh_0Qjmck?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-04\" class=\"close\" href=\"#\"></a></div>");
+
+    var click01 = $("#trailer-home");
+    var click02 = $("#trailer-elbow");
+    var click03 = $("#trailer-neck");
+    var click04 = $("#trailer-back");
+    var trailer01 = $("#trailer-01");
+    var trailer02 = $("#trailer-02");
+    var trailer03 = $("#trailer-03");
+    var trailer04 = $("#trailer-04");
+    var close01 = $("#close-01");
+    var close02 = $("#close-02");
+    var close03 = $("#close-03");
+    var close04 = $("#close-04");
+    var iframe01 = $('#video-01');
+    var iframe02 = $('#video-02');
+    var iframe03 = $('#video-03');
+    var iframe04 = $('#video-04');
+    var video01 = document.getElementById("video-01").contentWindow;
+    var video02 = document.getElementById("video-02").contentWindow;
+    var video03 = document.getElementById("video-03").contentWindow;
+    var video04 = document.getElementById("video-04").contentWindow;
+
+    ytClick(click01, trailer01, close01, video01);
+    ytClick(click02, trailer02, close02, video02);
+    ytClick(click03, trailer03, close03, video03);
+    ytClick(click04, trailer04, close04, video04);
+  }
+}();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function () {
+  var nav = $(".nav-mobile");
+  var toggle = $(".toggle");
+  var subToggle = $(".toggle-sub-menu");
+  var subMenu = $(".nav-mobile__sub-menu");
+
+  toggle.click(function (event) {
+    event.preventDefault();
+    $(this).toggleClass("toggle-active");
+    nav.slideToggle(600);
+  });
+
+  subToggle.click(function (event) {
+    event.preventDefault();
+    $(this).toggleClass("toggle-active");
+    $(this).next().slideToggle(600);
+    //this.children(".nav-mobile__sub-menu").slideToggle(800);
+  });
+}();
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function () {
+  var collection = document.querySelector("#product-collection");
+  var productDetail = document.querySelector("#product-detail");
+
+  if (collection || productDetail) {
+    var data = $("#trailer").data("trailer");
+    $("#container").append("<div class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"youtube\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + data + "?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a class=\"close\" href=\"#\"></a></div>");
+
+    var container = $(".trailer");
+    var close = $(".close");
+    var video = document.getElementById("youtube").contentWindow;
+    $("#trailer").click(function (e) {
+      e.preventDefault();
+      container.fadeIn(600);
+    });
+
+    close.click(function (e) {
+      e.preventDefault();
+      video.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      container.fadeOut(600);
+    });
+  }
+}();
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function () {
+  var cart = document.querySelector("#cart");
+
+  if (cart) {
+    $('body').on('click', '[name="checkout"], [name="goto_pp"], [name="goto_gc"]', function () {
+      if ($('#agree').is(':checked') && $('#agree-2').is(':checked')) {
+        $(this).submit();
+      } else {
+        alert("You must agree with the terms and conditions of sales, privacy policy, and medical disclaimer to check out.");
+        return false;
+      }
+    });
+  }
+}();
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// // !(function() {
+// //   let productDetail = document.querySelector("#product-detail");
+
+// //   if (productDetail) {
+// //     // let items = document.querySelectorAll(".also > li");
+// //     // items = [...items];
+// //     // console.log(items)
+// //     // $(items).pick(3);
+// //   }
+// // })();
+
+
+// import React, { Component } from "react";
+// import ReactDOM from "react-dom";
+// import axios from "axios";
+
+// class Product extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       product: null
+//     }
+//   }
+//   componentDidMount() {
+//     axios(`/products/${this.props.productHandle}.js`)
+//       .then((response) => {
+//         console.log(response);
+//         // this.setState
+//       })
+//       .catch((response) => {
+//         console.log(response);
+//       });
+//   }
+//   render() {
+//     return (
+//       <div>Test</div>
+//     )
+//   }
+// }
+
+// let ProductElement = document.getElementById("product");
+
+// if (ProductElement) {
+//   let ProductHandle = ProductElement.dataset.handle;
+//   ReactDOM.render(<Product productHandle={ProductHandle} />, ProductElement);
+// }
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function () {
+  var main = document.getElementById("main");
+  var footer = document.getElementById("footer");
+  var fHeight = footer.clientHeight;
+  var ticking = false;
+
+  var setPaddingBottom = function setPaddingBottom(element, padding) {
+    if (element.style.paddingBottom != padding + "px") {
+      element.style.paddingBottom = padding + "px";
+    }
+  };
+
+  setPaddingBottom(main, fHeight);
+
+  var onResize = function onResize() {
+    fHeight = footer.clientHeight;
+    requestTick();
+  };
+
+  var requestTick = function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+    }
+    ticking = true;
+  };
+
+  var update = function update() {
+    ticking = false;
+    setPaddingBottom(main, fHeight);
+  };
+
+  window.addEventListener("resize", onResize, false);
+}();
+
+/***/ })
+/******/ ]);

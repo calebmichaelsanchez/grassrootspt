@@ -1,0 +1,82 @@
+<div class="product--Video">
+  <div class="product-intro">
+    <div class="product__inner">
+      <a id="trailer" class="product-intro__thumbnail" href="#" data-trailer="{{ product.vendor }}">
+        <img class="product-intro__img" src="{{ product | img_url: '680x680' }}" alt="{{ product.featured_image.alt | escape }}" />
+      </a>
+      <div class="product-intro__button">
+        <div class="product-info">
+          <div class="product-info__title">{{ product.title }}</div>
+          {% include 'product-stars' %}
+          <p id="product-price">
+            {% assign variant = product.selected_or_first_available_variant %}
+            {% if product.compare_at_price > product.price %}
+            <span class="product-price on-sale" itemprop="price">
+              {{ variant.price | money }}
+            </span>
+            <s class="product-compare-price">
+              {{ variant.compare_at_price | money }}
+            </s>
+            {% else %}
+            <span class="product-price" itemprop="price">
+              {{ variant.price | money }}
+            </span>
+            {% endif %}
+          </p> <!-- product-price -->
+        </div>
+        <div class="product-button">
+           <input type="submit" name="add" id="add" value="Add to cart" class="product-button__submit" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-columns">
+    <div class="product-info">
+      <div class="product-info__title">More information about the</br>{{ product.title }}:</div>
+      <div class="product-info__description">{{ product.description }}</div>
+
+
+      {% assign hide_default_title = false %}
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        {% assign hide_default_title = true %}
+      {% endif %}
+      {% if product.type != 'free-video' %}
+      <div id="product-variants" class="product-variants {% if hide_default_title %} hidden{% endif %}">
+        <select id="product-select" name="id">
+        {% for variant in product.variants %}
+          <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
+          {{ variant.title }} - {{ variant.price | money }}
+          </option>
+        {% endfor %}
+        </select>
+      </div> <!-- product-variants -->
+      <div id="backorder" class="hidden">
+        <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>
+      </div> <!-- backorder -->
+      {% endif %}
+
+
+
+      <div class="product-button">
+         <input type="submit" name="addVideo" id="addVideo" value="Add to cart" class="product-button__submit" />
+      </div>
+      <div class="product-instructions">
+        <p><strong>Download Instructions</strong></p>
+        <p>Once purchased, you will receive an email with an invitation to download the video. We suggest doing so on your computer so you have the file to watch on other devices.</p>
+      </div>
+    </div> <!-- product-info -->
+    <div class="product-kit">
+      <div class="product-kit__title">
+        We recommend these tools for this video:
+      </div>
+      {% include 'kit-products' %}
+      <div class="product-kit__button">
+        <div class="product-button">
+           <input type="submit" name="addKit" id="addKit" value="Purchase all tools as a kit" class="product-button__submit product-button__submit--secondary" />
+        </div>
+      </div>
+    </div> <!-- product-kit -->
+  </div> <!-- product-columns -->
+</div> <!-- product-video -->
+
+

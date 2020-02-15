@@ -1,0 +1,36 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: http://wiki.shopify.com/Related_Products -->
+
+{% assign image_size = 'grande' %}
+{% assign heading = 'You might also like' %}
+
+{% if product.metafields.recommendations.productHandles %}
+
+<ul id="also" class="grid grid--also">
+  <h1 class="also-title">{{ heading }}</h1>
+</ul>
+
+{% endif %}
+
+<script type="text/javascript">
+//<![CDATA[
+  var recommendations = [];
+  {% if product.metafields.recommendations.productHandles %}
+  recommendations = jQuery.trim({{ product.metafields.recommendations.productHandles | json }}).split(/[\s,;]+/);
+  {% endif %}
+  if (recommendations.length && recommendations[0] !== '') {
+    var list = jQuery('ul#also');
+    for (var i=0; i<recommendations.length; i++) {
+      jQuery.getJSON('/products/' + recommendations[i] + '.js', function(product) {
+        var price = product.price;
+        var productPrice = '$' + (product.price / 100);
+        list.append('<li class="grid__item grid__item--third"><a href="' + product.url + '"><div class="grid__image"><img src="' + product.images[0].replace(/(\.jpg|\.png|\.jpeg|\.gif)/, '_{{ image_size }}$1') + '" /></div><div class="grid__item__info"><div class="grid__item__info__title">' + product.title + '</div><div class="grid__item__info__price">' + productPrice + '</div></div></a></li>');
+      })
+      .done(function(){
+        $("#also > li").pick(3);
+      });
+    }
+  }
+//]]>
+</script>
+

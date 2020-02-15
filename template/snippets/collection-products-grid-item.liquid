@@ -1,0 +1,21 @@
+<li class="product product--collection">
+  <a class="product__inner" href="{{ product.url }}">
+    <div class="product__item product-image">
+      <div class="product-image__link">
+        <img class="product-image__img" src="{{ product | img_url: '680x680' }}" alt="{{ product.featured_image.alt | escape }}" />
+      </div>
+    </div>
+    <div class="product__item product-info">
+      <div class="product-info__link">{{ product.title }}</div>
+      <p class="product-info__price">
+        {% if product.price_varies %}From{% endif %}
+        {{ product.price | money }}
+        {% if on_sale %}
+        <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+        {% endif %}
+      </p>
+      <p class="product-info__description">{{ product.description | truncate: 150 | strip_html }}</p>
+      <div class="product-info__learn-more">Learn More >></div>
+    </div>
+  </a>
+</li>

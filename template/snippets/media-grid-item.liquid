@@ -1,0 +1,21 @@
+<li class="media__item">
+  <ul class="article">
+    <li class="article__item article__item--image">
+      <div class="article__image">
+        <div class="article__image-intrinsic" style="background-image:url('{{ article.image.src | img_url: '600x' }}');">
+        </div>
+      </div>
+    </li>
+    <li class="article__item article__item--text">
+      <div class="article__title">
+        {{ article.title }}
+      </div>
+      <div class="article__content">
+        {{ article.content }}
+      </div>
+      <div class="article__link">
+        <a target="_blank" href="{{ article.excerpt | strip_html }}">{{ link_out }}</a>
+      </div>
+    </li>
+  </ul>
+</li>

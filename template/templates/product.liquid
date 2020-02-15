@@ -1,0 +1,22 @@
+{% assign add_to_cart = 'Add to cart' %}
+{% assign sold_out = 'Sold Out' %}
+{% assign unavailable = 'Unavailable' %}
+
+<section id="product-detail" class="product-detail">
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+    <div class="product">
+      {% if product.type == 'Video' %}
+        {% include 'product-video' %}
+      {% elsif product.type == 'free-video' %}
+        {% include 'product-free-video' %}
+      {% else %}
+        {% include 'product-general' %}
+      {% endif %}
+      {% include 'related-products' %}
+      {% include 'product-reviews' %}
+    </div>
+  </form>
+</section>
+
+{% include 'kit-product-js' %}
+{% include 'product-variant-js' %}
