@@ -1,46 +1,83 @@
-<section id="intro" class="intro">
-  <div class="intro__inner">
-    <div class="intro__item intro__item--computer" id="trailer-home">
-      <img src="{{ 'home-computer.png' | asset_url }}" />
-    </div>
-    <div class="intro__item intro__item--text">
-      <div class="intro__title">Videos and tools to help you feel better.</div>
-      <a href="/pages/videos-tool-kits" class="intro__button button button--tertiary">
-        Browse and download
-      </a>
-    </div>
-  </div>
-</section>
-<section class="how">
-  <div class="how__inner">
-    <div class="how__title">How it works</div>
-    <a href="/pages/videos-tool-kits" class="how__item">
-      <img src="{{ 'home-icon-01.png' | asset_url }}" class="how__icon">
-      <div class="how__subtitle">Find &amp; download a video</div>
-      <div class="how__text">Physical therapy exercises and Pilates in educational, therapeutic videos that can be downloaded and watched on any desktop or mobile device.</div>
-    </a>
-    <a href="/pages/store" class="how__item how__item--extra">
-      <img src="{{ 'home-icon-02.png' | asset_url }}" class="how__icon">
-      <div class="how__subtitle">Shop matching tools</div>
-      <div class="how__text">To make your self-treatment seamless, each video recommends a set of therapy tools available for purchase.</div>
-    </a>
-    <div class="how__item">
-      <img src="{{ 'home-icon-03.png' | asset_url }}" class="how__icon">
-      <div class="how__subtitle">Be your own body mechanic</div>
-      <div class="how__text">Our videos provide the expert coaching and exercises so you can learn about your body, mobilize, strengthen and reduce pain.</div>
-    </div>
-    <div class="how__search">
-      <a href="/pages/videos-tool-kits" class="how__search-link">
-        Start exploring self treatment videos + tools >
-      </a>
-      <form action="/search" method="get" class="how__search-form" role="search">
-        <input class="how__search-form__item how__search-form__item--search" name="q" type="search" placeholder="Type body area or condition into search field" value="{{ search.terms | escape }}" />
-        <input class="how__search-form__item how__search-form__item--button" type="submit" value="GO"/>
+<section class="explore">
+  <div class="explore__inner">
+    <h1 class="explore__inner-title">Explore videos and tools to help you feel better</h1>
+    <div class="explore__inner-search">
+      <form action="/search" method="get" class="explore__form" role="search">
+        <input class="explore__form-item explore__form-item--search" name="q" type="search" placeholder="Type body area or condition into search field" value="{{ search.terms | escape }}" />
+        <input class="explore__form-item explore__form-item--button" type="submit" value="GO"/>
       </form>
     </div>
   </div>
 </section>
-<section class="about-us">
+<section class="library">
+  <div class="library__inner">
+    <h2 class="library__title">Our most popular self treatment videos</h2>
+    <div class="library__item">
+      <img id="trailer-elbow" src="{{ 'healthy-shoulder.jpg' | asset_url }}" data-trailer="-WCQaz2O6Uo" />
+      <div class="library__item-inner">
+        <h4 class="library__item-title">Healthy Shoulder</h4>
+        <p class="library__item-text">Is your shoulder pain limiting you? Do you feel shoulder pain when you are lifting, reaching, getting dressed, working or playing?</p>
+        <a href="/products/shoulder-mobility-exercises" class="library__item-button">Learn More</a>
+      </div>
+    </div>
+    <div class="library__item">
+      <img id="trailer-neck" src="{{ 'climbers-kit.jpg' | asset_url }}" data-trailer="lDs1esuqUDs" />
+      <div class="library__item-inner">
+        <h4 class="library__item-title">Climber's Kit</h4>
+        <p class="library__item-text">Are you a climber looking to perform at your optimal level and keep climbing for decades?</p>
+        <a href="/products/climbing-cross-training-exercises" class="library__item-button">Learn More</a>
+      </div>
+    </div>
+    <div class="library__item">
+      <img id="trailer-back" src="{{ 'golfers-elbow-tendinitis.jpg' | asset_url }}" alt="" data-trailer="ApVh_0Qjmck" />
+      <div class="library__item-inner">
+        <h4 class="library__item-title">Golfer's Elbow Tendinitis</h4>
+        <p class="library__item-text">Do you suffer from pain on the inside of your elbow or forearm, a.k.a. golfer’s elbow tendinitis?</p>
+        <a href="/products/exercises-for-golfers-elbow-tendinitis" class="library__item-button">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="blog">
+  <div class="blog__inner">
+    <h2 class="blog__title">Watch, read, listen</h2>
+    <a href="/pages/bd-beta-series" class="blog__item">
+      <img id="trailer-elbow" src="{{ 'home-blog-1.jpg' | asset_url }}" data-trailer="-WCQaz2O6Uo" />
+      <div class="blog__item-inner">
+        <h4 class="blog__item-title">Watch the Black Diamond Beta video series</h4>
+        <h4>&#10230;</h4>
+      </div>
+    </a>
+    <a href="/blogs/articles" class="blog__item">
+      <img id="trailer-neck" src="{{ 'home-blog-2.jpg' | asset_url }}" data-trailer="lDs1esuqUDs" />
+      <div class="blog__item-inner">
+        <h4 class="blog__item-title">Read articles about cross-training and more</h4>
+        <h4>&#10230;</h4>
+      </div>
+    </a>
+    <a href="/blogs/podcasts" class="blog__item">
+      <img id="trailer-back" src="{{ 'home-blog-3.jpg' | asset_url }}" alt="" data-trailer="ApVh_0Qjmck" />
+      <div class="blog__item-inner">
+        <h4 class="blog__item-title">Listen to podcasts about training/injury prevention</h4>
+        <h4>&#10230;</h4>
+      </div>
+    </a>
+  </div>
+</section>
+<section class="big-quote">
+  <div class="big-quote__inner">
+    <div class="big-quote__item-container">
+      {% for article in blogs["testimonials"].articles reversed %}
+        <div class="big-quote__item">
+          <h3 class="big-quote__testimony">{{ article.content }}</h3>
+          <h3 class="big-quote__author">- {{ article.title }}</h3>
+        </div>
+      {% endfor %}
+    </div>
+    <a href="/pages/videos-tool-kits" class="big-quote__button">Shop all self treatment videos</a>
+  </div>
+</section>
+<!-- <section class="about-us">
   <div class="about-us__inner">
     <div class="about-us__title">More about us</div>
     <div class="about-us__text">
@@ -48,32 +85,5 @@
     </div>
     <a href="/pages/videos-tool-kits" class="about-us__link button button--secondary">Browse video library</a>
   </div>
-</section>
-<section class="library">
-  <div class="library__inner">
-    <div class="library__title">Build your own video library</div>
-    <div class="library__subtitle">Start by checking out some of our most popular videos that address common problems.</div>
-    <div class="library__item">
-      <img id="trailer-elbow" src="{{ 'home-elbow.png' | asset_url }}" data-trailer="-WCQaz2O6Uo" />
-      <a href="/collections/golfers-elbow" class="library__item-inner">
-        <div class="library__item-title">Golfer's Elbow</div>
-        <div class="library__item-text">Do you experience pain at your inner elbow/forearm area during simple daily tasks such as pinching, gripping, squeezing, lifting, or impacting? If so you may be suffering from Golfer's Elbow and could benefit from self treatment.</div>
-      </a>
-    </div>
-    <div class="library__item">
-      <img id="trailer-neck" src="{{ 'home-neck.jpg' | asset_url }}" data-trailer="lDs1esuqUDs" />
-      <a href="/collections/healthy-neck" class="library__item-inner">
-        <div class="library__item-title">Healthy Neck</div>
-        <div class="library__item-text">Do you have a pain in your neck? Perhaps you have episode of your neck "going out" or complain of frequent headaches. This video provides simple, yet challenging restorative, alignment, and strengthening exercises that you can take with you anywhere.</div>
-      </a>
-    </div>
-    <div class="library__item">
-      <img id="trailer-back" src="{{ 'home-hip.jpg' | asset_url }}" alt="" data-trailer="ApVh_0Qjmck" />
-      <a href="/collections/low-back-pain-extension-preference" class="library__item-inner">
-        <div class="library__item-title">Lower Back Pain<br />Extension Preference</div>
-        <div class="library__item-text">Do you get up in the morning and your low back is stiff? Maybe the pain is worse after yard work or other activities that cause you to bend, stoop, or flex your spine. If this sounds like you, you may have a directional preference for spinal extension.</div>
-      </a>
-    </div>
-    <div class="library__quote">“I did theses exercises as recommended and it fixed my elbow tendinitis that I had lingering for 4 months.<br />Thank you!”</div>
-  </div>
-</section>
+</section> -->
+

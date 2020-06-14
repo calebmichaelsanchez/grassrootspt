@@ -1,4 +1,4 @@
-.toolkits {
+.how {
   padding-top: rem-calc(100);
   padding-bottom: rem-calc(100);
   text-align: center;
@@ -11,4 +11,70 @@
   @include respond-to(ipad-portrait) {
     background-size: percentage(277 / 1440) auto;
   }
+  &__inner {
+    @include container(735px);
+    text-align: center;
+    font-size: 0;
+  }
+  &__title {
+    margin-bottom: rem-calc(75);
+  }
+  &__item {
+    @include center();
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    vertical-align: top;
+    margin-bottom: 40px;
+    @include respond-to(ipad-portrait) {
+      display: inline-block;
+      width: 33.33%;
+      margin: 0;
+      padding-left: rem-calc(10);
+      padding-right: rem-calc(10);
+    }
+    img {
+      margin-bottom: rem-calc(20);
+      max-height: 79px;
+    }
+    &__subtitle {
+
+    }
+    &--extra {
+      &:before, &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 20%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: 2;
+        @include respond-to(ipad-portrait) {
+          display: inline-block;
+        }
+      }
+      &:before {
+        width: 17px;
+        height: 17px;
+        right: 100%;
+        background-image: url("{{ 'home-icon-plus.png' | asset_url }}");
+        background-size: 17px 17px;
+        transform: translate(50%, -50%);
+      }
+      &:after {
+        width: 29.5px;
+        height: 11.5px;
+        left: 100%;
+        background-image: url("{{ 'home-icon-arrow.png' | asset_url }}");
+        background-size: 29.5px 11.5px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+.toolkits {
+  @include border(color(maroon));
+  padding-top: rem-calc(135);
+  padding-bottom: rem-calc(100);
 }

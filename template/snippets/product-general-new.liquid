@@ -1,6 +1,6 @@
-<div class="product--general">
-  <div class="product__inner">
-    <div class="product__item product-image">
+<div class="product-general">
+  <div class="product-general__inner">
+    <div class="product-general__item product-image">
     {% if product.images.size == 0 %}
         <img class="product-image__img" src="{{ '' | img_url: 'grande' }}" alt="" />
     {% else %}
@@ -9,12 +9,9 @@
       </a>
     {% endif %}
     </div><!-- .product-image -->
-    <div class="product__item product-info">
-      <!-- <span itemprop="name" class="product-info__title">
-        {{ product.title }}
-      </span> -->
-      <div class="product-info__out-of-stock">Looks like one or more of the products in this kit are unavailable! Check back in the next week or two!</div>
-      <div id="product-description" class="product-info__description" itemprop="description">
+    <div class="product-general__item product-general__info">
+      <div class="product-general__info__out-of-stock">Looks like one or more of the products in this kit are unavailable! Check back in the next week or two!</div>
+      <div id="product-description" class="product-general__info__description" itemprop="description">
         {{ product.description }}
       </div>
       {% assign hide_default_title = false %}
@@ -52,9 +49,9 @@
         <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>
       </div> <!-- backorder -->
       {% endif %}
+      <div class="product-button">
+         <input type="submit" name="add" id="add" value="Add to cart" class="product-button__submit" />
+      </div>
     </div> <!-- product-info -->
-    <div class="product__item product-button">
-       <input type="submit" name="add" id="add" value="Add to cart" class="product-button__submit" />
-    </div> <!-- product-item -->
   </div> <!-- product-inner -->
 </div>

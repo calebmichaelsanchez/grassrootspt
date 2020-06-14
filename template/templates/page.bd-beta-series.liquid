@@ -1,0 +1,8 @@
+<section class="store">
+  <ul class="grid grid--store">
+    <h2 class="grid__title">BD Beta Series</h2>
+    {% for product in collections['bd-beta-series'].products %}
+      {% include 'free-grid-item' %}
+    {% endfor %}
+  </ul>
+</section>

@@ -1,15 +1,15 @@
 <li class="grid__item grid__item--third">
   <a href="{{ product.url }}">
-    <div class="grid__image">
+    <div class="grid__image grid__image--intrinsic-rectangle">
       <img src="{{ product | img_url: '680x680' }}" alt="{{ product.featured_image.alt | escape }}" />
     </div>
     <div class="grid__item__info">
-      <div class="grid__item__info__title">{{ product.title }}</div>
+      <h4 class="grid__item__info__title">{{ product.title }}</h4>
       {% include 'product-stars' %}
-      <div class="grid__item__info__description">
+      <p class="grid__item__info__description">
         {{ product.description | truncate: 150 | strip_html }}
-      </div>
-      <div class="grid__item__info__learn-more">Learn More >></div>
+      </p>
+      <p class="grid__item__info__learn-more">Learn More >></p>
     </div>
   </a>
 </li>

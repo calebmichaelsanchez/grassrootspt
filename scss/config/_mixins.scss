@@ -37,6 +37,10 @@ $breakpoints: (
   font-family: $primary;
   @include font-normal();
 }
+@mixin font-secondary() {
+  font-family: $secondary;
+  @include font-normal();
+}
 
 // ======================================
 // Fonts
@@ -45,25 +49,45 @@ $breakpoints: (
 @mixin h1() {
   @include font-primary();
   font-size: rem-calc($h1);
+  font-weight: 700;
+  color: color(white);
 }
 @mixin h2() {
   @include font-primary();
   font-size: rem-calc($h2);
-  font-weight: normal;
-  text-transform: uppercase;
+  font-weight: 400;
+  color: color(dusk);
+  text-align: center;
 }
 @mixin h3() {
   @include font-primary();
   font-size: rem-calc($h3);
-  line-height: 1.2;
+  font-weight: 400;
+  font-style: italic;
+  color: color(dusk);
+}
+@mixin h4() {
+  @include font-secondary();
+  font-size: rem-calc($h4);
+  font-weight: 600;
+  line-height: 1.33;
+  color: color(orange);
+}
+@mixin h5() {
+  @include font-secondary();
+  font-size: rem-calc($h5);
+  font-weight: 400;
+  color: color(orange);
 }
 @mixin p() {
-  @include font-primary();
+  @include font-secondary();
   font-size: rem-calc($body);
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 1.5;
 }
 @mixin a() {
-  @include font-primary();
+  @include font-secondary();
+  font-weight: 300;
   color: $link-color;
   text-decoration: none;
   font-size: rem-calc($body);
@@ -72,16 +96,20 @@ $breakpoints: (
   @include font-primary();
   font-size: rem-calc($small);
 }
-@mixin button() {
-  @include font-tertiary();
+@mixin button($backgroundColor: color(orange), $color: color(white), $hover: color(plum)) {
   display: inline-block;
-  width: 190px;
-  padding: 24px 10px;
-  background-color: $red;
-  font-size: $small;
-  color: $white;
-  letter-spacing: 0.28rem;
-  cursor: pointer;
+  @include font-secondary();
+  font-weight: 500;
+  font-size: rem-calc(14);
+  margin-top: rem-calc($spacer-3);
+  padding: rem-calc($spacer-1) rem-calc(25);
+  background-color: $backgroundColor;
+  color: $color;
+  text-decoration: none;
+  transition: color 400ms ease;
+  &:hover {
+    color: $hover;
+  }
 }
 
 // ======================================================
@@ -129,8 +157,11 @@ $breakpoints: (
   }
 }
 
+@mixin border($color) {
+  border-top: rem-calc(30) solid $color;
+}
 // ======================================
-// Background
+// Container
 // ======================================
 
 @mixin container($max-width: 745px) {

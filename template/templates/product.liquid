@@ -6,11 +6,11 @@
   <form action="/cart/add" method="post" enctype="multipart/form-data">
     <div class="product">
       {% if product.type == 'Video' %}
-        {% include 'product-video' %}
+        {% include 'product-video-new' %}
       {% elsif product.type == 'free-video' %}
         {% include 'product-free-video' %}
       {% else %}
-        {% include 'product-general' %}
+        {% include 'product-general-new' %}
       {% endif %}
       {% include 'related-products' %}
       {% include 'product-reviews' %}

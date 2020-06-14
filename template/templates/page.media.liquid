@@ -1,18 +1,18 @@
 <section class="media">
   <ul class="media__list">
-    <h3>Articles</h3>
+    <h2>Articles</h2>
     {% for article in blogs["articles"].articles %}
       {% include 'media-grid-item', link_out: 'Read More' %}
     {% endfor %}
   </ul>
   <ul class="media__list">
-    <h3>Podcasts</h3>
+    <h2>Podcasts</h2>
     {% for article in blogs["podcasts"].articles %}
       {% include 'media-grid-item', link_out: 'Listen' %}
     {% endfor %}
   </ul>
   <ul class="media__list">
-    <h3>Videos</h3>
+    <h2>Videos</h2>
     {% for article in blogs["videos"].articles %}
       {% include 'media-grid-item', link_out: 'Watch' %}
     {% endfor %}

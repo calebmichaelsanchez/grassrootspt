@@ -3,16 +3,20 @@
   vertical-align: top;
   font-size: 0;
   text-align: left;
-  &__title {
-    font-size: rem-calc(18);
-    color: color(orange);
-    text-transform: uppercase;
-  }
   &__item {
     display: inline-block;
     vertical-align: middle;
     width: 100%;
     @include respond-to(mobile) { width: 50%; }
-    @include respond-to(ipad-landscape) { width: 100%; }
+    @include respond-to(ipad-landscape) {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &__button {
+    input {
+      @include button();
+    }
   }
 }

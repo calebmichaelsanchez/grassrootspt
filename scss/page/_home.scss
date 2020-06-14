@@ -2,193 +2,65 @@
   background-color: #ffffff !important;
   color: color(dusk) !important;
 }
-.intro {
-  padding: rem-calc(60) rem-calc(16);
-  text-align: center;
-  @include background();
+.explore{
+  position: relative;
+  padding: rem-calc(82) rem-calc(16) rem-calc(184);
+  background: url("{{ 'home-background.jpg' | asset_url }}") center center;
+  background-size: cover;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .29);
+    z-index: 10;
+  }
   &__inner {
-    @include container(690px);
-    text-align: left;
-    font-size: 0;
-  }
-  &__item {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    width: 100%;
-    &--computer {
-      margin-bottom: 30px;
-      cursor: pointer;
-      @include respond-to(mobile-plus) {
-        width: percentage(388 / 690);
-        margin-right: percentage(62 / 690);
-        margin-bottom: 0;
-      }
-    }
-    &--text {
-      @include respond-to(mobile-plus) {
-        width: percentage(240 / 690);
-        text-align: left;
-        transform: translateY(-25%);
-      }
-    }
-  }
-  &__title {
-    font-size: rem-calc(24);
-    color: color(white);
-    margin-bottom: 22px;
-    font-weight: normal;
-  }
-  &__video-container {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    background-size: cover;
     position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
+    z-index: 20;
+    @include container(650px);
+    &-title {
+      text-align: center;
+    }
+    &-search {
+      display: block;
       width: 100%;
-      height: 100%;
-      background: color(dusk);
-      z-index: 2;
-      opacity: 1;
-      visibility: visible;
-    }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0;
-      transition: 400ms ease;
-    }
-    .active & iframe { opacity: 1; }
-    .active &:after {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 400ms ease, visibility 0s 400ms linear;
+      margin-top: rem-calc(27);
+      padding-left: rem-calc(15);
+      padding-right: rem-calc(15);
     }
   }
-}
-.how {
-  width: 100%;
-  background: color(white);
-  padding: 60px 16px;
-  &__inner {
-    @include container(735px);
-    text-align: center;
-    font-size: 0;
-  }
-  &__item {
-    @include center();
-    position: relative;
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    vertical-align: top;
-    margin-bottom: 40px;
-    @include respond-to(ipad-portrait) {
-      display: inline-block;
-      width: 33.33%;
-      margin: 0;
-      padding-left: rem-calc(10);
-      padding-right: rem-calc(10);
-    }
-    img {
-      margin-bottom: rem-calc(20);
-      max-height: 79px;
-    }
-    &--extra {
-      &:before, &:after {
-        content: '';
-        display: none;
-        position: absolute;
-        top: 20%;
-        background-repeat: no-repeat;
-        background-position: center center;
-        z-index: 2;
-        @include respond-to(ipad-portrait) {
-          display: inline-block;
-        }
-      }
-      &:before {
-        width: 17px;
-        height: 17px;
-        right: 100%;
-        background-image: url("{{ 'home-icon-plus.png' | asset_url }}");
-        background-size: 17px 17px;
-        transform: translate(50%, -50%);
-      }
-      &:after {
-        width: 29.5px;
-        height: 11.5px;
-        left: 100%;
-        background-image: url("{{ 'home-icon-arrow.png' | asset_url }}");
-        background-size: 29.5px 11.5px;
-        transform: translate(-50%, -50%);
-      }
-    }
-  }
-  &__title {
-    font-size: rem-calc(24);
-    color: color(plum);
-    margin-bottom: rem-calc(70);
-    font-weight: bold;
-  }
-  &__subtitle {
-    font-size: rem-calc(14);
-    color: color(plum);
-    font-weight: normal;
-  }
-  &__text {
-    font-size: rem-calc(11);
-    font-weight: normal;
-    color: #6b6b6b;
-  }
-  &__search {
-    display: block;
-    width: 100%;
-    margin-top: rem-calc(60);
-    @include respond-to(mobile-plus) {
-      margin-top: rem-calc(80);
-    }
-  }
-  &__search-link {
-    display: inline-block;
-    font-size: rem-calc(12);
-    color: color(orange);
-    margin-bottom: rem-calc(20);
-  }
-  &__search-form {
+
+  &__form {
     position: relative;
     display: inline-block;
-    margin-bottom: rem-calc(40);
     width: 100%;
-    max-width: rem-calc(515);
+    //max-width: rem-calc(515);
     font-size: 0;
     text-align: center;
     z-index: 10;
-    &__item {
+    &-item {
       display: inline-block;
       vertical-align: middle;
       line-height: 1;
       outline: 0;
       width: 100%;
       margin: 0;
-      border: 1px solid color(orange);
+      border: 1px solid color(white);
       &--search {
-        font-size: rem-calc(12);
-        color: color(light-gray);
-        padding-top: rem-calc(25);
-        padding-bottom: rem-calc(25);
+        font-size: rem-calc(14);
+        color: color(white);
+        background-color: transparent;
         padding-left: rem-calc(10);
         padding-right: rem-calc(10);
         text-align: center;
+        max-height: rem-calc(73);
+        min-height: rem-calc(73);
+        &::placeholder {
+          color: color(white);
+        }
         @include respond-to(mobile-plus) {
           width: percentage(640 / 745);
           text-align: left;
@@ -201,26 +73,30 @@
         margin-top: rem-calc(10);
         margin-left: auto;
         margin-right: auto;
-        padding-top: rem-calc(21);
-        padding-bottom: rem-calc(21);
         text-align: center;
         font-size: rem-calc(24);
-        background-color: color(orange);
-        color: #fff;
+        background-color: color(white);
+        color: color(orange);
         border: 0;
+        max-height: rem-calc(73);
+        min-height: rem-calc(73);
+        transition: 400ms ease;
+        &:hover {
+          background-color: color(orange);
+          color: color(white);
+        }
         @include respond-to(mobile-plus) {
           width: percentage(105 / 745);
           margin-top: 0;
-          border: 1px solid color(orange);
         }
       }
     }
   }
 }
 .about-us {
+  @include border(color(maroon));
   display: block;
   width: 100%;
-  border-top: 25px solid color(maroon);
   padding: 100px 16px;
   background-color: color(white);
   &__inner {
@@ -246,22 +122,21 @@
     }
   }
 }
-.library {
+.library, .blog {
   display: block;
   width: 100%;
-  border-top: 25px solid color(orange);
-  padding: 100px 16px;
+  padding: rem-calc($spacer-9) rem-calc(16) rem-calc(155);
   background-color: color(white);
-  img { cursor: pointer; }
   &__inner {
-    @include container(1000);
+    @include container(80%);
     text-align: center;
     font-size: 0;
+    @include respond-to(ipad-portrait) {
+      max-width: 1000px;
+    }
   }
   &__title {
-    font-size: rem-calc(24);
-    color: color(dusk);
-    font-weight: bold;
+    margin-bottom: rem-calc(75);
   }
   &__subtitle {
     font-size: rem-calc(14);
@@ -272,9 +147,9 @@
   &__item {
     display: block;
     width: 100%;
-    max-width: 315px;
+    max-width: 680px;
     @include center();
-    margin-bottom: 40px;
+    margin-bottom: rem-calc($spacer-4);
     @include respond-to(ipad-portrait) {
       display: inline-block;
       vertical-align: top;
@@ -284,15 +159,18 @@
       margin-bottom: 0;
     }
     &-inner {
-      padding: rem-calc(10);
+      display: block;
+      margin-top: rem-calc($spacer-2);
     }
     &-title {
-      font-size: rem-calc(14);
-      color: color(orange);
+      margin-bottom: rem-calc(5);
+      transition: color 400ms ease;
     }
     &-text {
-      font-size: rem-calc(11);
-      color: #545454;
+      color: color(black);
+    }
+    &-button {
+      @include button($backgroundColor: color(plum), $hover: color(orange))
     }
   }
   &__quote {
@@ -303,5 +181,37 @@
     margin-top: rem-calc(70);
     font-weight: normal;
     font-style: italic;
+  }
+}
+.blog {
+  @include border(color(maroon));
+  padding-top: rem-calc(114);
+  padding-bottom: rem-calc(114);
+  &__item:hover h4 { color: color(plum); }
+}
+.big-quote {
+  @include border(color(orange));
+  display: block;
+  width: 100%;
+  padding: rem-calc(114) rem-calc(16);
+  background-color: color(white);
+  &__inner {
+    position: relative;
+    @include container(773px);
+    text-align: center;
+  }
+  &__item {
+    &:first-of-type { display: block; }
+    display: none;
+  }
+  &__author {
+    font-size: rem-calc(15);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: rem-calc(25);
+  }
+  &__button {
+    @include button($hover: color(plum));
+    margin-top: rem-calc($spacer-4);
   }
 }

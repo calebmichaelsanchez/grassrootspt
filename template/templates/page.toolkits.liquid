@@ -1,6 +1,23 @@
+<section class="how">
+  <div class="how__inner">
+    <h2 class="how__title">How it works</h2>
+    <div class="how__item">
+      <img src="{{ 'home-icon-01.png' | asset_url }}" class="how__icon">
+      <h4 class="how__item-subtitle">Find &amp; download a video</h4>
+    </div>
+    <div class="how__item how__item--extra">
+      <img src="{{ 'home-icon-02.png' | asset_url }}" class="how__icon">
+      <h4 class="how__item-subtitle">Shop matching tools</h4>
+    </div>
+    <div class="how__item">
+      <img src="{{ 'home-icon-03.png' | asset_url }}" class="how__icon">
+      <h4 class="how__item-subtitle">Be your own body mechanic</h4>
+    </div>
+  </div>
+</section>
 <section class="toolkits">
   <ul class="grid grid--toolkits">
-    <h1>Self Treatment Videos</h1>
+    <h2 class="grid__title">Self Treatment Videos</h2>
     {% for product in collections['videos'].products %}
       {% if product.type == 'Video' %}
         {% include 'video-collection-grid-item' %}

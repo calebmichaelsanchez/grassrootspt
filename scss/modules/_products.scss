@@ -18,10 +18,7 @@
   vertical-align: top;
   text-align: left;
   width: 100%;
-  color: color(orange);
-  &--general {
-    padding: rem-calc(100) rem-calc(16);
-  }
+  // color: color(orange);
   &--Video, .product--general & {
     width: 100%;
     font-size: 0;
@@ -50,9 +47,6 @@
       display: inline-block;
       vertical-align: middle;
     }
-  }
-  .product-instructions {
-    margin-top: rem-calc(30);
   }
   &--free-video {
     .product-image__bg:after { content: "click to watch video"; }

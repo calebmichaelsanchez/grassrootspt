@@ -43,7 +43,7 @@ selectors inside search.css.
     <p class="centered">Your search for "{{ search.terms }}" did not yield any results.</p>
     {% else %}
     <ul class="grid grid--store grid--videos grid--search">
-      <h1>Self Treatment Videos</h1>
+      <h2 class="grid__title">Self Treatment Videos</h2>
       {% for product in search.results %}
         {% if product.type == 'Video' %}
           {% include 'video-collection-grid-item' %}
@@ -51,7 +51,7 @@ selectors inside search.css.
       {% endfor %}
     </ul>
     <ul class="grid grid--store grid--search">
-      <h1>Self Treatment Tools</h1>
+      <h2 class="grid__title">Self Treatment Tools</h2>
       {% for product in search.results %}
         {% if product.type == 'tool' %}
           {% include 'store-grid-item' %}

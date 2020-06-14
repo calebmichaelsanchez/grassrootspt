@@ -1,3 +1,16 @@
+<section id="intro" class="intro">
+  <div class="intro__inner">
+    <div class="intro__item intro__item--computer" id="trailer-home">
+      <img src="{{ 'home-computer.png' | asset_url }}" />
+    </div>
+    <!-- <div class="intro__item intro__item--text">
+      <div class="intro__title">Videos and tools to help you feel better.</div>
+      <a href="/pages/videos-tool-kits" class="intro__button button button--tertiary">
+        Browse and download
+      </a>
+    </div> -->
+  </div>
+</section>
 <section class="about">
   <div class="about__text">
     <p>{{ page.content }}</p>
@@ -12,9 +25,9 @@
             <img class="employee__image" src="{{ article.image.src | img_url: '215x215' }}" />
           </li>
           <li class="employee__item employee__item--text">
-            <div class="employee__name">
+            <h4 class="employee__name">
               {{ article.title }}
-            </div>
+            </h4>
             <div class="employee__content">
               {{ article.content }}
             </div>

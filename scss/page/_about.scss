@@ -1,22 +1,75 @@
+.intro {
+  padding: rem-calc(60) rem-calc(16);
+  text-align: center;
+  @include background();
+  &__inner {
+    @include container(388px);
+    text-align: left;
+    font-size: 0;
+  }
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    &--computer {
+      cursor: pointer;
+    }
+  }
+  &__video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-size: cover;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: color(dusk);
+      z-index: 2;
+      opacity: 1;
+      visibility: visible;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: 400ms ease;
+    }
+    .active & iframe { opacity: 1; }
+    .active &:after {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 400ms ease, visibility 0s 400ms linear;
+    }
+  }
+}
 .about {
   padding: rem-calc(100) rem-calc(16);
   text-align: center;
-  @include background();
+  h5 { margin-bottom: rem-calc(40); }
   &__text {
     position: relative;
     display: inline-block;
-    max-width: rem-calc(740);
-    color: #fff;
+    max-width: rem-calc(763);
+    p { margin-bottom: rem-calc(25); }
   }
 }
 .employees {
   width: 100%;
-  max-width: rem-calc(880);
-  margin-left: auto;
-  margin-right: auto;
   padding: rem-calc(80) rem-calc(16);
+  @include border(color(maroon));
   &__list {
-    margin: 0;
+    max-width: rem-calc(880);
+    margin: 0 auto;
   }
   &__item {
     display: block;
@@ -35,7 +88,7 @@
   text-align: center;
   &__item {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     text-align: left;
     width: 100%;
     &--image {
@@ -51,7 +104,7 @@
         height: 100%;
         background-color: color(orange);
       }
-      @include respond-to(mobile) {
+      @include respond-to(mobile-plus) {
         width: percentage(215 / 880);
         padding-right: percentage(42.5 / 880);
         margin-bottom: 0;
@@ -61,37 +114,15 @@
       }
     }
     &--text {
-      font-size: rem-calc(14);
-      color: color(orange);
-      @include respond-to(mobile) {
-        font-size: rem-calc(12);
+      @include respond-to(mobile-plus) {
         width: percentage(580 / 880);
         padding-left: percentage(42.5 / 880);
       }
     }
   }
-  &__name {
-    text-transform: uppercase;
-    font-size: rem-calc(22);
-    color: color(plum);
-    font-weight: bold;
-    margin-bottom: rem-calc(12);
-  }
-  &__content, &__content p {
-    color: #454545;
-    font-weight: 400;
-    font-size: rem-calc(14);
-    @include respond-to(mobile) {
-      font-size: rem-calc(12);
-    }
-    a {
-      font-size: rem-calc(14);
-      color: color(orange);
-      font-weight: bold;
-      text-transform: none;
-      @include respond-to(mobile) {
-        font-size: rem-calc(12);
-      }
-    }
+  &__name { margin-bottom: rem-calc(12); }
+  &__content {
+    p { margin-bottom: rem-calc(15); }
+    a { color: color(orange); }
   }
 }

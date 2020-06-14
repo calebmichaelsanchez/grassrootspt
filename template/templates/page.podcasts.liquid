@@ -1,0 +1,8 @@
+<section class="media">
+  <ul class="media__list">
+    <h2>Podcasts</h2>
+    {% for article in blogs["podcasts"].articles %}
+      {% include 'media-grid-item', link_out: 'Listen' %}
+    {% endfor %}
+  </ul>
+</section>

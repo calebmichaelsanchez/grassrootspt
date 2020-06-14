@@ -1,6 +1,6 @@
-<div class="product--general product--free-video">
-  <div class="product__inner">
-    <div class="product__item product-image">
+<div class="product-general product--free-video">
+  <div class="product-general__inner">
+    <div class="product-general__item product-image">
     {% if product.images.size == 0 %}
         <img class="product-image__img" src="{{ '' | img_url: 'grande' }}" alt="" />
     {% else %}
@@ -10,49 +10,14 @@
       </a>
     {% endif %}
     </div><!-- .product-image -->
-    <div class="product__item product-info">
-      <span itemprop="name" class="product-info__title">
+    <div class="product-general__item product-general__info">
+      <h1 itemprop="name" class="product-general__info__title">
         {{ product.title }}
-      </span>
+      </h1>
       <div class="product-info__out-of-stock">Looks like one or more of the products in this kit are unavailable! Check back in the next week or two!</div>
-      <div id="product-description" class="product-info__description" itemprop="description">
+      <p id="product-description" class="product-general__info__description" itemprop="description">
         {{ product.description }}
-      </div>
-      {% assign hide_default_title = false %}
-      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
-        {% assign hide_default_title = true %}
-      {% endif %}
-      {% if product.type != 'free-video' %}
-      <div id="product-variants" class="product-variants {% if hide_default_title %} hidden{% endif %}">
-        <select id="product-select" name="id">
-        {% for variant in product.variants %}
-          <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money }}
-          </option>
-        {% endfor %}
-        </select>
-      </div> <!-- product-variants -->
-      <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
-        {% if product.available %}
-        <link itemprop="availability" href="http://schema.org/InStock" />
-        {% else %}
-        <link itemprop="availability" href="http://schema.org/OutOfStock" />
-        {% endif %}
-        <p>
-          {% assign variant = product.selected_or_first_available_variant %}
-          {% if product.compare_at_price > product.price %}
-          <span class="product-price on-sale" itemprop="price">{{ variant.price | money }}</span>
-          <s class="product-compare-price">{{ variant.compare_at_price | money }}</s>
-          {% else %}
-          <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
-          {% endif %}
-        </p>
-      </div> <!-- product-price -->
-      <div id="backorder" class="hidden">
-        <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>
-      </div> <!-- backorder -->
-      {% endif %}
+      </p>
     </div> <!-- product-info -->
     <div class="product__item product-button">
        <input type="submit" name="add" id="add" value="Add to cart" class="product-button__submit" />

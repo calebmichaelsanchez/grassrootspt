@@ -65,56 +65,83 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__home___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__home__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__about__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__menu__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toolkits__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toolkits___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__toolkits__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cart___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__cart__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__product__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__footer__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__footer__);
 
 
-__webpack_require__(1);
 
-__webpack_require__(2);
 
-__webpack_require__(3);
 
-__webpack_require__(4);
 
-__webpack_require__(5);
 
-__webpack_require__(6);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+!function () {
+  var testimonials = document.querySelectorAll(".big-quote__item");
+  testimonials = _toConsumableArray(testimonials);
+  var i = 0;
+
+  var fader = function fader(array) {
+    $(testimonials[i]).fadeOut(800, function () {
+      i++;
+
+      if (i == array.length) {
+        i = 0;
+      }
+
+      $(testimonials[i]).fadeIn(800);
+    });
+  };
+
+  setInterval(function () {
+    fader(testimonials);
+  }, 15000);
+}();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
 !function () {
   var home = document.getElementById("intro");
 
   if (home) {
-
-    // save this just in case
-    // function vimeoClick(clickId, trailerId, closeId, video) {
-    //   clickId.click(function(e) {
-    //     e.preventDefault();
-    //     trailerId.fadeIn(600);
-    //     video.play();
-    //   });
-
-    //   closeId.click(function(e) {
-    //     e.preventDefault();
-    //     video.pause();
-    //     trailerId.fadeOut(600);
-    //   });
-    // }
-
     var ytClick = function ytClick(clickId, trailerId, closeId, video) {
       clickId.click(function (e) {
         e.preventDefault();
         trailerId.fadeIn(600);
       });
-
       closeId.click(function (e) {
         e.preventDefault();
         video.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
@@ -125,71 +152,40 @@ __webpack_require__(6);
     // i hate myself for this
     // I will make this more workable later
     $("#container").append("<div id=\"trailer-01\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-01\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ylLbqW8s7kI?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-01\" class=\"close\" href=\"#\"></a></div>");
-    $("#container").append("<div id=\"trailer-02\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-02\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-WCQaz2O6Uo?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-02\" class=\"close\" href=\"#\"></a></div>");
-    $("#container").append("<div id=\"trailer-03\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-03\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/lDs1esuqUDs?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-03\" class=\"close\" href=\"#\"></a></div>");
-    $("#container").append("<div id=\"trailer-04\" class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"video-04\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ApVh_0Qjmck?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a id=\"close-04\" class=\"close\" href=\"#\"></a></div>");
-
     var click01 = $("#trailer-home");
-    var click02 = $("#trailer-elbow");
-    var click03 = $("#trailer-neck");
-    var click04 = $("#trailer-back");
     var trailer01 = $("#trailer-01");
-    var trailer02 = $("#trailer-02");
-    var trailer03 = $("#trailer-03");
-    var trailer04 = $("#trailer-04");
     var close01 = $("#close-01");
-    var close02 = $("#close-02");
-    var close03 = $("#close-03");
-    var close04 = $("#close-04");
     var iframe01 = $('#video-01');
-    var iframe02 = $('#video-02');
-    var iframe03 = $('#video-03');
-    var iframe04 = $('#video-04');
     var video01 = document.getElementById("video-01").contentWindow;
-    var video02 = document.getElementById("video-02").contentWindow;
-    var video03 = document.getElementById("video-03").contentWindow;
-    var video04 = document.getElementById("video-04").contentWindow;
-
     ytClick(click01, trailer01, close01, video01);
-    ytClick(click02, trailer02, close02, video02);
-    ytClick(click03, trailer03, close03, video03);
-    ytClick(click04, trailer04, close04, video04);
   }
 }();
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/* 3 */
+/***/ (function(module, exports) {
 
 !function () {
   var nav = $(".nav-mobile");
   var toggle = $(".toggle");
+  var subToggleLi = $(".nav-mobile__item");
   var subToggle = $(".toggle-sub-menu");
   var subMenu = $(".nav-mobile__sub-menu");
-
   toggle.click(function (event) {
     event.preventDefault();
     $(this).toggleClass("toggle-active");
     nav.slideToggle(600);
   });
-
-  subToggle.click(function (event) {
-    event.preventDefault();
-    $(this).toggleClass("toggle-active");
-    $(this).next().slideToggle(600);
-    //this.children(".nav-mobile__sub-menu").slideToggle(800);
+  subToggleLi.click(function (event) {
+    //event.preventDefault();
+    $(this).children(".toggle-sub-menu").toggleClass("toggle-active");
+    $(this).children(".toggle-sub-menu").next().slideToggle(600);
   });
 }();
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/* 4 */
+/***/ (function(module, exports) {
 
 !function () {
   var collection = document.querySelector("#product-collection");
@@ -197,8 +193,7 @@ __webpack_require__(6);
 
   if (collection || productDetail) {
     var data = $("#trailer").data("trailer");
-    $("#container").append("<div class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"youtube\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + data + "?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a class=\"close\" href=\"#\"></a></div>");
-
+    $("#container").append("<div class=\"trailer\"><div class=\"trailer__inner\"><div class=\"trailer__magic\"><iframe id=\"youtube\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/".concat(data, "?enablejsapi=1\" frameborder=\"0\" allowfullscreen></iframe></div></div><a class=\"close\" href=\"#\"></a></div>"));
     var container = $(".trailer");
     var close = $(".close");
     var video = document.getElementById("youtube").contentWindow;
@@ -206,7 +201,6 @@ __webpack_require__(6);
       e.preventDefault();
       container.fadeIn(600);
     });
-
     close.click(function (e) {
       e.preventDefault();
       video.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
@@ -216,11 +210,8 @@ __webpack_require__(6);
 }();
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/* 5 */
+/***/ (function(module, exports) {
 
 !function () {
   var cart = document.querySelector("#cart");
@@ -238,13 +229,11 @@ __webpack_require__(6);
 }();
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 6 */
+/***/ (function(module, exports) {
 
-"use strict";
 // // !(function() {
 // //   let productDetail = document.querySelector("#product-detail");
-
 // //   if (productDetail) {
 // //     // let items = document.querySelectorAll(".also > li");
 // //     // items = [...items];
@@ -252,12 +241,9 @@ __webpack_require__(6);
 // //     // $(items).pick(3);
 // //   }
 // // })();
-
-
 // import React, { Component } from "react";
 // import ReactDOM from "react-dom";
 // import axios from "axios";
-
 // class Product extends Component {
 //   constructor(props) {
 //     super(props);
@@ -281,21 +267,15 @@ __webpack_require__(6);
 //     )
 //   }
 // }
-
 // let ProductElement = document.getElementById("product");
-
 // if (ProductElement) {
 //   let ProductHandle = ProductElement.dataset.handle;
 //   ReactDOM.render(<Product productHandle={ProductHandle} />, ProductElement);
 // }
 
-
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+/* 7 */
+/***/ (function(module, exports) {
 
 !function () {
   var main = document.getElementById("main");
@@ -320,6 +300,7 @@ __webpack_require__(6);
     if (!ticking) {
       window.requestAnimationFrame(update);
     }
+
     ticking = true;
   };
 

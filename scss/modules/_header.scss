@@ -2,16 +2,25 @@
   display: none;
   background-color: #fff;
   position: relative;
-  min-height: rem-calc(105.5);
-  padding-left: rem-calc(57.5);
-  padding-right: rem-calc(57.5);
-  border-bottom: rem-calc(15) solid color(dusk);
-  justify-content: space-between;
-  align-items: center;
-  font-size: 100%;
-  z-index: 50;
+  // border-bottom: rem-calc(15) solid color(dusk);
   @include respond-to(ipad-landscape) {
+    display: block;
+  }
+  &__inner {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 100%;
+    z-index: 50;
+    min-height: rem-calc(105.5);
+    @include respond-to(ipad-landscape) {
+      padding-left: rem-calc(20);
+      padding-right: rem-calc(20);
+    }
+    @include respond-to(mbp-thirteen) {
+      padding-left: rem-calc(57.5);
+      padding-right: rem-calc(57.5);
+    }
   }
 }
 .header-mobile {
@@ -37,14 +46,14 @@
 
 #logo {
   display: block;
-  font-family: $base-font-family;
-  font-size: rem-calc(14);
+  font-family: $primary;
+  font-size: rem-calc(30);
   text-transform: lowercase;
   color: color(orange);
   img {
     display: inline-block;
     vertical-align: middle;
-    width: 50px;
+    width: rem-calc(87);
   }
 }
 #mobile-logo {

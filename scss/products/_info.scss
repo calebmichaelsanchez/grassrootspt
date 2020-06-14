@@ -1,5 +1,4 @@
 .product-info {
-  .product--Video &,
   .product--general & {
     width: 100%;
     text-align: left;
@@ -20,29 +19,11 @@
     }
     &__price {
       margin-bottom: 0;
-      font-weight: 700;
+      font-weight: 600;
     }
-  }
-  .product--Video .product-intro & {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: rem-calc(20);
-    &__title { color: #fff; }
-  }
-  .product--Video & {
-    &__description {
-      margin-top: rem-calc(30);
-      margin-bottom: rem-calc(30);
-    }
-  }
-  &__title {
-    font-size: rem-calc(18);
-    text-transform: uppercase;
   }
   p, ul {
-    font-weight: 400;
-    color: #454545;
+    color: color(black);
   }
   p { margin-bottom: rem-calc(10); }
   &__link {

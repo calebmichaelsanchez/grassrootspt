@@ -7,12 +7,12 @@
       </div>
     </li>
     <li class="article__item article__item--text">
-      <div class="article__title">
+      <h4 class="article__title">
         {{ article.title }}
-      </div>
-      <div class="article__content">
+      </h4>
+      <p class="article__content">
         {{ article.content }}
-      </div>
+      </p>
       <div class="article__link">
         <a target="_blank" href="{{ article.excerpt | strip_html }}">{{ link_out }}</a>
       </div>

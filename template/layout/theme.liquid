@@ -27,8 +27,7 @@
   <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
   <script src="https://use.fontawesome.com/6ef83b8c37.js"></script>
   {{ 'screen.css' | asset_url | stylesheet_tag }}
-  {{ '//fonts.googleapis.com/css?family=Quicksand:400,700' | stylesheet_tag }}
-
+  {{ 'fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Quicksand:wght@400;700&display=swap' | stylesheet_tag }}
 
   <!--[if lt IE 9]>
   {{ '//html5shiv.googlecode.com/svn/trunk/html5.js' | script_tag }}
@@ -66,46 +65,48 @@
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
   <div id="container">
   <header class="header">
-    <div class="header__item header__item--left">
-      <a id="logo" href="/">
-        <img src="{{ 'logo.svg' | asset_url }}" />
-        {{ shop.name }}
-        {% if template == 'index' %}
-          <h1 class="hidden">{{ shop.name }}</h1>
-        {% endif %}
-      </a>
-    </div>
-    <div class="header__item header__item--right">
-      <div class="nav-utility">
-        <div class="nav-utility__item nav-utility__item--search">
-          <form action="/search" method="get" class="nav-search-form" role="search">
-            <input class="nav-search-form__item nav-search-form__item--search" name="q" type="search" id="search-field" placeholder="Search" value="{{ search.terms | escape }}" />
-            <input class="nav-search-form__item nav-search-form__item--button" type="submit" id="search-submit" value=""/>
-          </form>
-        </div>
-        <div class="nav-utility__item nav-utility__item--cart">
-          <a class="cart-link" href="/cart">
-            <span>{{cart.item_count}}</span>
-          </a>
-          {% comment %}
-          {% if shop.customer_accounts_enabled %}
-          <div class="customer-links">
-            {% if customer %}
-              Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
-            {% else %}
-              {{ 'Log in' | customer_login_link }}
-              {% if shop.customer_accounts_optional %}
-              or {{ 'Create an account' | customer_register_link }}
-              {% endif %}
-            {% endif %}
-          </div>
+    <div class="header__inner">
+      <div class="header__item header__item--left">
+        <a id="logo" href="/">
+          <img src="{{ 'logo.svg' | asset_url }}" />
+          {{ shop.name }}
+          {% if template == 'index' %}
+            <h1 class="hidden">{{ shop.name }}</h1>
           {% endif %}
-          {% endcomment %}
+        </a>
+      </div>
+      <div class="header__item header__item--right">
+        <div class="nav-utility">
+          <div class="nav-utility__item nav-utility__item--search">
+            <form action="/search" method="get" class="nav-search-form" role="search">
+              <input class="nav-search-form__item nav-search-form__item--search" name="q" type="search" id="search-field" placeholder="Search" value="{{ search.terms | escape }}" />
+              <input class="nav-search-form__item nav-search-form__item--button" type="submit" id="search-submit" value=""/>
+            </form>
+          </div>
+          <div class="nav-utility__item nav-utility__item--cart">
+            <a class="cart-link" href="/cart">
+              <span>{{cart.item_count}}</span>
+            </a>
+            {% comment %}
+            {% if shop.customer_accounts_enabled %}
+            <div class="customer-links">
+              {% if customer %}
+                Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+              {% else %}
+                {{ 'Log in' | customer_login_link }}
+                {% if shop.customer_accounts_optional %}
+                or {{ 'Create an account' | customer_register_link }}
+                {% endif %}
+              {% endif %}
+            </div>
+            {% endif %}
+            {% endcomment %}
+          </div>
         </div>
       </div>
-      <div class="nav-wrapper">
-        {% include 'site-nav' %}
-      </div>
+    </div>
+    <div class="nav-wrapper">
+      {% include 'site-nav' %}
     </div>
   </header>
   <header class="header-mobile">

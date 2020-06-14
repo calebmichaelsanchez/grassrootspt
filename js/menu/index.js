@@ -1,6 +1,7 @@
 !(function() {
   let nav = $(".nav-mobile");
   let toggle = $(".toggle");
+  let subToggleLi = $(".nav-mobile__item")
   let subToggle = $(".toggle-sub-menu");
   let subMenu = $(".nav-mobile__sub-menu");
 
@@ -10,10 +11,9 @@
     nav.slideToggle(600);
   });
 
-  subToggle.click(function(event) {
-    event.preventDefault();
-    $(this).toggleClass("toggle-active");
-    $(this).next().slideToggle(600);
-    //this.children(".nav-mobile__sub-menu").slideToggle(800);
-  })
+  subToggleLi.click(function(event) {
+    //event.preventDefault();
+    $(this).children(".toggle-sub-menu").toggleClass("toggle-active");
+    $(this).children(".toggle-sub-menu").next().slideToggle(600);
+  });
 })();

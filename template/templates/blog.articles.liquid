@@ -1,0 +1,8 @@
+<section class="media">
+  <ul class="media__list">
+    <h2>{{ blog.title }}</h2>
+    {% for article in blog.articles %}
+      {% include 'media-grid-item', link_out: 'Read More' %}
+    {% endfor %}
+  </ul>
+</section>
